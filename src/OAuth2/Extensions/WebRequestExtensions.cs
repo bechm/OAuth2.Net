@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace NNS.Authentication.OAuth2.Extensions
 {
@@ -6,7 +7,7 @@ namespace NNS.Authentication.OAuth2.Extensions
     {
         public static void SignRequest(this WebRequest webRequest)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

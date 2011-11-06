@@ -1,20 +1,30 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="42" fromTop="2" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="265" fromTop="9" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:Class1.cs" caret="127" fromTop="7" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ClientRegistryTests.cs" caret="0" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="263" fromTop="12" />
     </RecentFiles>
     <RecentEdits>
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="42" fromTop="2" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="57" fromTop="2" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="274" fromTop="9" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ClientRegistryTests.cs" caret="0" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="194" fromTop="8" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="263" fromTop="12" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="public" priority="31" />
-      <Item value="void" priority="31" />
+      <Item value="public" priority="126" />
+      <Item value="void" priority="63" />
       <Item value="this" priority="31" />
       <Item value="WebRequestExtensions`0" priority="31" />
       <Item value="webRequest" priority="32" />
-      <Item value="static" priority="62" />
+      <Item value="static" priority="157" />
+      <Item value="NotImplementedException" priority="29" />
+      <Item value="Guid`0" priority="31" />
+      <Item value="throw" priority="31" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <NAntValidationSettings>
