@@ -1,0 +1,7 @@
+
+/src/_ReSharper.OAuth2
+/src/_ReSharper.OAuth2
+*.suo
+*.dotCover
+/src/OAuth2/bin
+/src/OAuth2/obj
