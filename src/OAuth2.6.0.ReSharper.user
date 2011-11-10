@@ -1,32 +1,99 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="265" fromTop="9" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:Class1.cs" caret="127" fromTop="7" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ClientRegistryTests.cs" caret="0" fromTop="0" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="263" fromTop="12" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1578" fromTop="21" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Server.cs" caret="143" fromTop="7" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="322" fromTop="9" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwner.cs" caret="240" fromTop="11" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/d:Properties/f:AssemblyInfo.cs" caret="1058" fromTop="22" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1562" fromTop="37" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:UserAlredyExistsException.cs" caret="236" fromTop="9" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="508" fromTop="18" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="568" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="57" fromTop="2" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="274" fromTop="9" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ClientRegistryTests.cs" caret="0" fromTop="0" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="194" fromTop="8" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ClientRegistry.cs" caret="263" fromTop="12" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1578" fromTop="21" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Server.cs" caret="143" fromTop="7" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="320" fromTop="9" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="1456" fromTop="31" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwner.cs" caret="303" fromTop="13" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwner.cs" caret="240" fromTop="11" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="454" fromTop="14" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="554" fromTop="18" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="1627" fromTop="20" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="458" fromTop="10" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1562" fromTop="37" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:UserAlredyExistsException.cs" caret="236" fromTop="9" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:UserAlredyExistsException.cs" caret="350" fromTop="13" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="858" fromTop="27" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="1256" fromTop="29" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="856" fromTop="19" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="284" fromTop="11" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="657" fromTop="22" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="165" fromTop="2" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="public" priority="126" />
-      <Item value="void" priority="63" />
-      <Item value="this" priority="31" />
+      <Item value="public" priority="508" />
+      <Item value="void" priority="223" />
+      <Item value="this" priority="95" />
       <Item value="WebRequestExtensions`0" priority="31" />
-      <Item value="webRequest" priority="32" />
-      <Item value="static" priority="157" />
-      <Item value="NotImplementedException" priority="29" />
+      <Item value="webRequest" priority="65" />
+      <Item value="static" priority="413" />
+      <Item value="NotImplementedException" priority="87" />
       <Item value="Guid`0" priority="31" />
-      <Item value="throw" priority="31" />
+      <Item value="throw" priority="127" />
+      <Item value="Assert`0" priority="95" />
+      <Item value="AuthorizationGrant`0" priority="31" />
+      <Item value="new" priority="223" />
+      <Item value="Object`0" priority="31" />
+      <Item value="Server`0" priority="31" />
+      <Item value="ResourceOwner`0" priority="254" />
+      <Item value="resourceOwner" priority="160" />
+      <Item value="WebRequest`0" priority="31" />
+      <Item value="var" priority="95" />
+      <Item value="internal" priority="127" />
+      <Item value="List" priority="63" />
+      <Item value="ResourceOwners" priority="90" />
+      <Item value="private" priority="193" />
+      <Item value="AppDomainSetup`0" priority="31" />
+      <Item value="if" priority="127" />
+      <Item value="_resourceOwners" priority="191" />
+      <Item value="ResourceOwners`0" priority="127" />
+      <Item value="String`0" priority="255" />
+      <Item value="CrossAppDomainDelegate`0" priority="31" />
+      <Item value="return" priority="95" />
+      <Item value="string" priority="31" />
+      <Item value="Name" priority="31" />
+      <Item value="name" priority="127" />
+      <Item value="TestFixtureSetUp" priority="31" />
+      <Item value="Boolean`0" priority="31" />
+      <Item value="false" priority="95" />
+      <Item value="cleanInstanceForTests" priority="31" />
+      <Item value="AssertionException`0" priority="31" />
+      <Item value="ExpectedException" priority="31" />
+      <Item value="Exception`0" priority="31" />
+      <Item value="bool" priority="31" />
+      <Item value="null" priority="31" />
+      <Item value="ResourceOwnerExists`0" priority="31" />
+      <Item value="true" priority="31" />
+      <Item value="UserAlredyExistsException" priority="28" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="Fail`0" priority="26" />
+      <Item value="IsNotNull`0" priority="26" />
+      <Item value="AreEqual`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NNS.Authentication.OAuth2.ResourceOwners">
+      <Item value="Add`0" priority="27" />
+      <Item value="Find`0" priority="26" />
+      <Item value="FirstOrDefault`1" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NNS.Authentication.OAuth2.ResourceOwners">
+      <Item value="Add`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NNS.Authentication.OAuth2.ResourceOwner">
+      <Item value="Name" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <NAntValidationSettings>
@@ -44,7 +111,17 @@
     <string />
     <integer />
     <boolean>
-      <setting name="SolutionAnalysisEnabled">False</setting>
+      <setting name="SolutionAnalysisEnabled">True</setting>
     </boolean>
   </SettingsComponent>
+  <UnitTestSessions>
+    <Session>
+      <Name>Session #1</Name>
+      <Elements>
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.TestCreateResourceOwner" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="TestCreateResourceOwner" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.TestCreateResourceOwnerDouble" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="TestCreateResourceOwnerDouble" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+      </Elements>
+    </Session>
+  </UnitTestSessions>
 </Configuration>

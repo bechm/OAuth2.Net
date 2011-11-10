@@ -5,11 +5,7 @@ using System.Text;
 
 namespace NNS.Authentication.OAuth2
 {
-    /// <summary>
-    /// ClienRegistry is a List of Clients.
-    /// </summary>
-    public static class ClientRegistry
+    public class Server
     {
-
     }
 }

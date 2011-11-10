@@ -8,7 +8,7 @@
     <ProjectGuid>{351E8D0D-EADE-44C8-97AB-C3C05DD3F999}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OAuth2.UnitTests</RootNamespace>
+    <RootNamespace>NNS.Authentication.OAuth2.UnitTests</RootNamespace>
     <AssemblyName>OAuth2.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,12 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ClientRegistryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceOwnerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OAuth2\OAuth2.csproj">
+      <Project>{8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB}</Project>
+      <Name>OAuth2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
