@@ -35,4 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[InternalsVisibleTo(“OtherAssembly, PublicKey=26a0bb2c-156e-434b-904b-d4f0979a6c73”)]
+[assembly: InternalsVisibleTo("NNS.Authorizantion.OAuth2.UnitTests")]
