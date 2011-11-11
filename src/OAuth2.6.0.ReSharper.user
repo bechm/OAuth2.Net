@@ -119,8 +119,6 @@
       <Name>Session #1</Name>
       <Elements>
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
-        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.TestCreateResourceOwner" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="TestCreateResourceOwner" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
-        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.TestCreateResourceOwnerDouble" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="TestCreateResourceOwnerDouble" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
       </Elements>
     </Session>
   </UnitTestSessions>

@@ -48,6 +48,8 @@
     <Compile Include="ResourceOwner.cs" />
     <Compile Include="ResourceOwners.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="Servers.cs" />
+    <Compile Include="ServerWithAuthorizationCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clients\" />

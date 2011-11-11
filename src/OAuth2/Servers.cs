@@ -5,11 +5,8 @@ using System.Text;
 
 namespace NNS.Authentication.OAuth2
 {
-    public abstract class Server
+    public class Servers
     {
-        public Guid Guid;
-        public Uri AuthorizationRequestUri;
-        public String Scope;
 
     }
 }
