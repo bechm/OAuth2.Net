@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NNS.Authentication.OAuth2
 {
-    class ServerWithAuthorizationCode : Server
+    public class ServerWithAuthorizationCode : Server
     {
         public String ClientId { get; private set; }
         public Uri RedirectionUri { get; private set; }

@@ -15,12 +15,12 @@ namespace NNS.Authentication.OAuth2
             Name = name;
         }
 
-        public static ResourceOwner FromXElement(XElement element)
+        internal static ResourceOwner FromXElement(XElement element)
         {
             return new ResourceOwner(element.Element("name").Value);
         }
 
-        public XElement ToXElement()
+        internal XElement ToXElement()
         {
             return new XElement("ResourceOwner", new XElement("name", Name));
         }

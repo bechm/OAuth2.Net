@@ -8,7 +8,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
     public class ResourceOwnerTests
     {
         [Test]
-        public void TestCreateResourceOwner()
+        public void CreateResourceOwner()
         {
             ResourceOwners.CleanUpForTests();
             var resourceOwner = ResourceOwners.Add("user1");
@@ -19,7 +19,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
 
         [Test]
         [ExpectedException(typeof(UserAlredyExistsException))]
-        public void TestCreateResourceOwnerDouble()
+        public void CreateResourceOwnerDouble()
         {
             ResourceOwners.CleanUpForTests();
             var resourceOwner = ResourceOwners.Add("user1");
@@ -30,7 +30,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         }
 
         [Test]
-        public void TestGetResourceOwner()
+        public void GetResourceOwner()
         {
             ResourceOwners.CleanUpForTests();
             ResourceOwners.Add("user1");
@@ -45,7 +45,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         }
 
         [Test]
-        public void TestDisposeAndLoad()
+        public void DisposeAndLoad()
         {
             ResourceOwners.CleanUpForTests();
             ResourceOwners.Add("user1");

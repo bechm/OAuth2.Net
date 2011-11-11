@@ -89,7 +89,7 @@ namespace NNS.Authentication.OAuth2
 
         internal static void CleanUpForTests()
         {
-            _resourceOwners = new ResourceOwners();
+            _resourceOwners = new ResourceOwners(NewResourceOwnerSetting.CleanEmptyInstance);
         }
 
         public static ResourceOwner Add(String name)
