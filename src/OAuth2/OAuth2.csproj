@@ -48,6 +48,9 @@
     <Compile Include="ResourceOwner.cs" />
     <Compile Include="ResourceOwners.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="ServersWithAuthorizationCode.cs" />
+    <Compile Include="ServerWithAuthorizationCode.cs" />
+    <Compile Include="Exceptions\ServerWithAuthorizationCodeAlredyExistsException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clients\" />

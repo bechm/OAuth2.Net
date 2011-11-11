@@ -1,25 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using NNS.Authentication.OAuth2.Exceptions;
 
 namespace NNS.Authentication.OAuth2
 {
-    public class ResourceOwners : List<ResourceOwner>
+    public class ResourceOwners : List<ResourceOwner>, IDisposable
     {
         private static ResourceOwners _resourceOwners;
+        private const String FileName = "ResourceOwners.xml";
+        private Boolean _disposed = false;
         
-        private ResourceOwners(Boolean cleanInstanceForTests = false)
+        private enum NewResourceOwnerSetting
         {
-            if (cleanInstanceForTests == false) {
-                //TODO: Load from IsoStore
+            LoadInstanceFromIsoStore,
+            CleanEmptyInstance
+        }
+
+        private ResourceOwners(NewResourceOwnerSetting setting = NewResourceOwnerSetting.LoadInstanceFromIsoStore)
+        {
+            if (setting == NewResourceOwnerSetting.LoadInstanceFromIsoStore)
+            {
+                LoadFromIsoStore();
             }
         }
 
+        internal static void LoadFromIsoStore()
+        {
+            using (IsolatedStorageFile storageFile = IsolatedStorageFile.GetUserStoreForAssembly())
+            {
+                _resourceOwners = new ResourceOwners(NewResourceOwnerSetting.CleanEmptyInstance);
+                
+                if (!storageFile.FileExists(FileName))
+                    return;
+
+                using (var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Open, FileAccess.Read, storageFile))
+                {
+                    XDocument document = XDocument.Load(fileStream);
+                    foreach (var element in document.Root.Elements("ResourceOwner"))
+                    {
+                        _resourceOwners.Add(ResourceOwner.FromXElement(element));
+                    }
+                }
+            }
+        }
+
+
+        ~ResourceOwners()
+        {
+            if (!_disposed)
+                Dispose();
+        }
+
+        internal static void SaveToIsoStore()
+        {
+            _resourceOwners.Dispose();
+        }
+
+        public void Dispose()
+        {
+            var document = new XDocument(ToXElement());
+            using (var storageFile = IsolatedStorageFile.GetUserStoreForAssembly())
+            {
+                using (
+                    var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Create, FileAccess.Write,
+                                                                   storageFile))
+                {
+                    document.Save(fileStream);
+                }
+            }
+            _disposed = true;
+        }
+
+        private XElement ToXElement()
+        {
+            var root = new XElement("ResourceOwners");
+            foreach (var resourceOwner in _resourceOwners)
+            {
+                root.Add(resourceOwner.ToXElement());
+            }
+            return root;
+        }
+
+
         internal static void CleanUpForTests()
         {
-            _resourceOwners = new ResourceOwners();
+            _resourceOwners = new ResourceOwners(NewResourceOwnerSetting.CleanEmptyInstance);
         }
 
         public static ResourceOwner Add(String name)
