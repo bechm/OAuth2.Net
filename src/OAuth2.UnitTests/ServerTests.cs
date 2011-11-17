@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using NNS.Authentication.OAuth2.Exceptions;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NNS.Authentication.OAuth2.UnitTests
 {
@@ -59,5 +61,61 @@ namespace NNS.Authentication.OAuth2.UnitTests
             Assert.IsFalse(ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(Guid.NewGuid()));
 
         }
+
+        [Test]
+        public void ServerToXElement()
+        {
+            var authorizationuri = new Uri("http://example.com/auth");
+            var redirectionUri = new Uri("http://example.com/redirect");
+            var server = new ServerWithAuthorizationCode("clientid123",authorizationuri,redirectionUri );
+            var element = server.ToXElement();
+
+            element.Should().NotBeNull();
+            element.Name.ToString().Should().Be("Server");
+
+            element.Attribute("type").Should().NotBeNull();
+            element.Attribute("type").Value.Should().Be("AuthorizationCode");
+
+            element.Element("ClientId").Should().NotBeNull();
+            element.Element("ClientId").Value.Should().Be("clientid123");
+
+            element.Element("AuthorizationUri").Should().NotBeNull();
+            element.Element("AuthorizationUri").Value.Should().Be(authorizationuri.ToString());
+
+            element.Element("RedirectionUri").Should().NotBeNull();
+            element.Element("RedirectionUri").Value.Should().Be(redirectionUri.ToString());
+        }
+
+        [Test]
+        public void ServerFromXElement()
+        {
+            var element = new XElement("Server");
+            element.Add(new XAttribute("type", "AuthorizationCode"));
+            element.Add(new XElement("ClientId", "myspecialClientId"));
+            element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
+            element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
+
+            var server = ServerWithAuthorizationCode.FromXElement(element);
+
+            server.ClientId.Should().Be("myspecialClientId");
+            server.AuthorizationRequestUri.ToString().Should().Be("http://example.com/anotherfunnyUri");
+            server.RedirectionUri.ToString().Should().Be("http://example.com/behappy");
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidTypeException))]
+        public void ServerFromXElementInvalid()
+        {
+            var element = new XElement("Server");
+            element.Add(new XAttribute("type", "incorrectType"));
+            element.Add(new XElement("ClientId", "myspecialClientId"));
+            element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
+            element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
+
+            var server = ServerWithAuthorizationCode.FromXElement(element);
+
+            Assert.Fail();
+        }
+
     }
 }

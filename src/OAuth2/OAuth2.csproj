@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidTypeException.cs" />
     <Compile Include="Exceptions\UserAlredyExistsException.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

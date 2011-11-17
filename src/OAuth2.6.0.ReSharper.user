@@ -3,34 +3,24 @@
     <RecentFiles>
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1562" fromTop="37" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:UserAlredyExistsException.cs" caret="236" fromTop="9" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Server.cs" caret="215" fromTop="10" />
       <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/d:Properties/f:AssemblyInfo.cs" caret="1058" fromTop="22" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwner.cs" caret="523" fromTop="22" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:ServerWithAuthorizationCodeAlredyExistsException.cs" caret="34" fromTop="2" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="509" fromTop="17" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="315" fromTop="12" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="135" fromTop="5" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="2065" fromTop="45" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="932" fromTop="31" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:IIncomingWebRequestContext.cs" caret="0" fromTop="0" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:WebOperationContextWrapper.cs" caret="1840" fromTop="27" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:OutgoingWebResponseContextWrapper.cs" caret="1470" fromTop="13" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:MockedWebOperationContext.cs" caret="1862" fromTop="21" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="411" fromTop="13" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3038" fromTop="46" />
+      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="2938" fromTop="23" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Server.cs" caret="0" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="380" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="1482" fromTop="29" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="2096" fromTop="11" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:InvalidTypeException.cs" caret="599" fromTop="18" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5201" fromTop="24" />
     </RecentFiles>
     <RecentEdits>
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="518" fromTop="14" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="822" fromTop="22" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="968" fromTop="29" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="600" fromTop="18" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="237" fromTop="7" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="1443" fromTop="44" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="3158" fromTop="48" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="2887" fromTop="45" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="1805" fromTop="32" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="1183" fromTop="19" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="289" fromTop="3" />
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="2188" fromTop="28" />
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="2005" fromTop="28" />
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3454" fromTop="51" />
@@ -50,29 +40,40 @@
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1358" fromTop="5" />
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1718" fromTop="10" />
       <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3038" fromTop="28" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="206" fromTop="6" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="3497" fromTop="23" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="3806" fromTop="32" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="1044" fromTop="27" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5863" fromTop="35" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="1469" fromTop="27" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5278" fromTop="36" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5748" fromTop="41" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5210" fromTop="30" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:InvalidTypeException.cs" caret="567" fromTop="15" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:InvalidTypeException.cs" caret="599" fromTop="18" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
-      <Item value="public" priority="1052" />
-      <Item value="void" priority="543" />
+      <Item value="public" priority="1244" />
+      <Item value="void" priority="639" />
       <Item value="this" priority="95" />
       <Item value="WebRequestExtensions`0" priority="31" />
       <Item value="webRequest" priority="97" />
-      <Item value="static" priority="509" />
+      <Item value="static" priority="536" />
       <Item value="NotImplementedException" priority="145" />
       <Item value="Guid`0" priority="223" />
       <Item value="throw" priority="191" />
-      <Item value="Assert`0" priority="479" />
+      <Item value="Assert`0" priority="543" />
       <Item value="AuthorizationGrant`0" priority="31" />
-      <Item value="new" priority="703" />
+      <Item value="new" priority="959" />
       <Item value="Object`0" priority="31" />
       <Item value="Server`0" priority="63" />
       <Item value="ResourceOwner`0" priority="446" />
       <Item value="resourceOwner" priority="449" />
       <Item value="WebRequest`0" priority="156" />
-      <Item value="var" priority="447" />
-      <Item value="internal" priority="447" />
+      <Item value="var" priority="639" />
+      <Item value="internal" priority="479" />
       <Item value="List" priority="95" />
       <Item value="ResourceOwners" priority="152" />
       <Item value="private" priority="318" />
@@ -80,9 +81,9 @@
       <Item value="if" priority="255" />
       <Item value="_resourceOwners" priority="383" />
       <Item value="ResourceOwners`0" priority="378" />
-      <Item value="String`0" priority="415" />
+      <Item value="String`0" priority="511" />
       <Item value="CrossAppDomainDelegate`0" priority="31" />
-      <Item value="return" priority="223" />
+      <Item value="return" priority="287" />
       <Item value="string" priority="95" />
       <Item value="Name" priority="63" />
       <Item value="name" priority="127" />
@@ -91,8 +92,8 @@
       <Item value="false" priority="127" />
       <Item value="cleanInstanceForTests" priority="31" />
       <Item value="AssertionException`0" priority="63" />
-      <Item value="ExpectedException" priority="63" />
-      <Item value="Exception`0" priority="31" />
+      <Item value="ExpectedException" priority="95" />
+      <Item value="Exception`0" priority="63" />
       <Item value="bool" priority="31" />
       <Item value="null" priority="31" />
       <Item value="ResourceOwnerExists`0" priority="95" />
@@ -100,37 +101,37 @@
       <Item value="UserAlredyExistsException" priority="28" />
       <Item value="abstract" priority="30" />
       <Item value="Uri`0" priority="191" />
-      <Item value="ServerWithAuthorizationCode`0" priority="122" />
+      <Item value="ServerWithAuthorizationCode`0" priority="185" />
       <Item value="clientId" priority="159" />
-      <Item value="AuthorizationRequestUri" priority="31" />
+      <Item value="AuthorizationRequestUri" priority="63" />
       <Item value="authorizationRequestUri" priority="127" />
       <Item value="RedirectionUri" priority="63" />
-      <Item value="redirectionUri" priority="127" />
+      <Item value="redirectionUri" priority="159" />
       <Item value="Guid" priority="60" />
       <Item value="IDisposable`0" priority="63" />
       <Item value="Dispose`0" priority="31" />
       <Item value="LoadFromIsoStore`0" priority="63" />
       <Item value="const" priority="31" />
       <Item value="foreach" priority="63" />
-      <Item value="element" priority="95" />
+      <Item value="element" priority="607" />
       <Item value="ResourceOwner" priority="57" />
       <Item value="enum" priority="31" />
       <Item value="LoadInstanceFromIsoStore" priority="50" />
       <Item value="NewResourceOwnerSetting`0" priority="63" />
-      <Item value="XElement`0" priority="30" />
-      <Item value="XElement" priority="57" />
+      <Item value="XElement`0" priority="62" />
+      <Item value="XElement" priority="86" />
       <Item value="root" priority="63" />
       <Item value="Servers`0" priority="31" />
-      <Item value="ServerWithAuthorizationCode" priority="29" />
-      <Item value="Uri" priority="28" />
+      <Item value="ServerWithAuthorizationCode" priority="59" />
+      <Item value="Uri" priority="115" />
       <Item value="serverWithAuth" priority="95" />
       <Item value="GetBaseException`0" priority="31" />
-      <Item value="ClientId" priority="63" />
-      <Item value="ServersWithAuthorizationCode`0" priority="95" />
+      <Item value="ClientId" priority="95" />
+      <Item value="ServersWithAuthorizationCode`0" priority="154" />
       <Item value="guid" priority="95" />
       <Item value="item" priority="63" />
       <Item value="ServersWithAuthorizationCode" priority="29" />
-      <Item value="typeof" priority="31" />
+      <Item value="typeof" priority="63" />
       <Item value="NewServersWithAuthorizationCodeSetting`0" priority="31" />
       <Item value="server1" priority="127" />
       <Item value="server2" priority="63" />
@@ -140,7 +141,7 @@
       <Item value="IOperationWebContext" priority="31" />
       <Item value="IWebOperationContext" priority="91" />
       <Item value="context" priority="59" />
-      <Item value="using" priority="61" />
+      <Item value="using" priority="92" />
       <Item value="System" priority="125" />
       <Item value="ServiceModel" priority="80" />
       <Item value="Web" priority="80" />
@@ -154,12 +155,24 @@
       <Item value="HttpWebRequest`0" priority="58" />
       <Item value="ResourceOwnerName" priority="31" />
       <Item value="SetUp" priority="31" />
-      <Item value="server" priority="31" />
+      <Item value="server" priority="159" />
+      <Item value="authorizationuri" priority="31" />
+      <Item value="Element`0" priority="26" />
+      <Item value="FluentAssertions" priority="30" />
+      <Item value="XAttribute`0" priority="31" />
+      <Item value="InvalidTypeException`0" priority="31" />
+      <Item value="ExcpectedType" priority="31" />
+      <Item value="expectedType" priority="31" />
+      <Item value="ActualType" priority="31" />
+      <Item value="actualType" priority="31" />
+      <Item value="Message" priority="63" />
+      <Item value="base" priority="31" />
+      <Item value="Element" priority="64" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="Fail`0" priority="81" />
+      <Item value="Fail`0" priority="108" />
       <Item value="IsNotNull`0" priority="162" />
-      <Item value="AreEqual`0" priority="107" />
+      <Item value="AreEqual`0" priority="134" />
       <Item value="IsNull`0" priority="27" />
       <Item value="IsTrue`0" priority="53" />
       <Item value="IsNotNullOrEmpty`0" priority="26" />
@@ -195,13 +208,18 @@
       <Item value="FromXElement`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Xml.Linq.XElement">
-      <Item value="Element`0" priority="26" />
-      <Item value="Value" priority="26" />
-      <Item value="Elements`0" priority="26" />
-      <Item value="Add`0" priority="26" />
+      <Item value="Element`0" priority="49" />
+      <Item value="Value" priority="134" />
+      <Item value="Elements`0" priority="107" />
+      <Item value="Add`0" priority="134" />
+      <Item value="Should`0" priority="104" />
+      <Item value="Name" priority="26" />
+      <Item value="Attribute`0" priority="49" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.String">
       <Item value="ToArray`1" priority="26" />
+      <Item value="Should`0" priority="162" />
+      <Item value="ToString`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NNS.Authentication.OAuth2.ResourceOwners+NewResourceOwnerSetting">
       <Item value="CleanEmptyInstance" priority="53" />
@@ -210,13 +228,13 @@
       <Item value="Of`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NNS.Authentication.OAuth2.ServerWithAuthorizationCode">
-      <Item value="ClientId" priority="81" />
+      <Item value="ClientId" priority="108" />
       <Item value="AuthorizationRequestUri" priority="80" />
-      <Item value="RedirectionUri" priority="81" />
+      <Item value="RedirectionUri" priority="135" />
       <Item value="Guid" priority="135" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Uri">
-      <Item value="ToString`0" priority="53" />
+      <Item value="ToString`0" priority="188" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NNS.Authentication.OAuth2.ServersWithAuthorizationCode">
       <Item value="GetServerWithAuthorizationCode`0" priority="53" />
@@ -243,6 +261,24 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Net.WebRequest">
       <Item value="Create`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentAssertions.Assertions.ObjectAssertions">
+      <Item value="Be`0" priority="26" />
+      <Item value="NotBe`0" priority="26" />
+      <Item value="NotBeNull`0" priority="76" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FluentAssertions.Assertions.StringAssertions">
+      <Item value="Be`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.Linq.XAttribute">
+      <Item value="Should`0" priority="53" />
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.Linq.XName">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="InnerException" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <NAntValidationSettings>
@@ -282,6 +318,9 @@
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.GetServer" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="GetServer" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.ResourceOwnerFromXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="ResourceOwnerFromXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.ResourceOwnerToXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="ResourceOwnerToXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.ServerFromXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="ServerFromXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.ServerFromXElementInvalid" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="ServerFromXElementInvalid" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.ServerToXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="ServerToXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
       </Elements>
     </Session>
   </UnitTestSessions>
