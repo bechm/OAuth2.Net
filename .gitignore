@@ -9,3 +9,5 @@
 /src/OAuth2.UnitTests/obj
 /src/OAuth2.AcceptanceTests/bin
 /src/OAuth2.AcceptanceTests/obj
+/src/WCFMock/obj
+/src/WCFMock/bin

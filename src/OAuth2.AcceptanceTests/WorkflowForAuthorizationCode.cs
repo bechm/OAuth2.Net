@@ -2,35 +2,52 @@
 using System.Net;
 using System.Runtime.Remoting.Proxies;
 using System.ServiceModel.Web;
+using Moq;
+using NNS.Authentication.OAuth2.Extensions;
 using NUnit.Framework;
 using NUnit.Mocks;
+using WebOperationContext = System.ServiceModel.Web.MockedWebOperationContext;
 
 namespace NNS.Authentication.OAuth2.AcceptanceTests
 {
     public class WorkflowForAuthorizationCode
     {
+        private Uri _authorizationRequestUri;
+        private Uri _redirectionUri;
+        private string _resourceOwnerName ;
+        private string _clientId;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _resourceOwnerName = "stoeren";
+            if (!ResourceOwners.ResourceOwnerExists(_resourceOwnerName))
+                ResourceOwners.Add(_resourceOwnerName);
+
+            _clientId = "268852326492238";
+            _authorizationRequestUri = new Uri("http://example.com/AuthorizationRequest");
+            _redirectionUri = new Uri("http://example.com/RedirectionUri");
+            if (!ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(_clientId, _authorizationRequestUri, _redirectionUri))
+                ServersWithAuthorizationCode.Add(_clientId, _authorizationRequestUri, _redirectionUri);
+        }
+
         [Test]
         public void CreateServerAndUsersAndGetCorrectRedirect()
         {
-            //TODO: WebRequest Mocken
+            Mock<IWebOperationContext> mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
+            using (new MockedWebOperationContext(mockContext.Object))
+            {
+                var outgoingRespose = WebOperationContext.Current.OutgoingResponse;
+                outgoingRespose.SetStatusAsNotFound("notfound");
+            }
 
-            const string resourceOwnerName = "krik";
-            if(!ResourceOwners.ResourceOwnerExists(resourceOwnerName))
-                ResourceOwners.Add(resourceOwnerName);
-            var resourceOwner = ResourceOwners.GetResourceOwner(resourceOwnerName);
-
-            const string clientId = "268852326492238";
-            var authorizationRequestUri = new Uri("http://example.com/AuthorizationRequest");
-            var redirectionUri = new Uri("http://example.com/RedirectionUri");
-            if(!ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(clientId, authorizationRequestUri, redirectionUri))
-                ServersWithAuthorizationCode.Add(clientId, authorizationRequestUri, redirectionUri);
-            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(clientId, authorizationRequestUri, redirectionUri);
+            var resourceOwner = ResourceOwners.GetResourceOwner(_resourceOwnerName);
+            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
 
             //Da soll es mal hin gehen:
             //if (!resourceOwner.HasValidTokenFor(server))
             //{
-            //    context.RedirectToAuthorization(server, resourceOwner)
-            //    //incomming Request muss mit Redirect auf LoginSeite versehen werden
+            //    context.RedirectToAuthorization(server, resourceOwner);
             //}
             
             //TODO: WebRequest Mocken und überpüfen
@@ -45,9 +62,18 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
         public void GetAuthorizationCodeViaUserAgentAndRequestProtectedResource()
         {
             //TODO: webrequest mocken
-            // diesen dann mit "Pseudo"-Auth-Code ausstatten, die SetToken(server, token) 
-            // und die WebRequest.Autorise(server, resourceOwner) anschubsen
+            // diesen dann mit "Pseudo"-Auth-Code ausstatten, die SetToken(server, incommingRequest) => resoruceOwner
+            // und die WebRequest.Authorize(server, resourceOwner) anschubsen
             // dabei müssen die UserCredentials richtig gesetzt sein
+
+
+            var resourceOwner = ResourceOwners.GetResourceOwner(_resourceOwnerName);
+            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
+
+            var webRequest = (HttpWebRequest) WebRequest.Create("http://example.com/ProtectedResource");
+            webRequest.SignRequest(server,resourceOwner);
+
+            //Test ob WebRequest richtig unterschrieben wurde
 
             Assert.Fail("Test is not completed yet");
         }
