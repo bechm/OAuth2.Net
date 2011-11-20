@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using NNS.Authentication.OAuth2.Exceptions;
 
 namespace NNS.Authentication.OAuth2
@@ -20,7 +23,15 @@ namespace NNS.Authentication.OAuth2
 
         private ServersWithAuthorizationCode(NewServersWithAuthorizationCodeSetting setting = NewServersWithAuthorizationCodeSetting.LoadInstanceFromIsoStore)
         {
-            //TODO: implement
+            if (setting == NewServersWithAuthorizationCodeSetting.LoadInstanceFromIsoStore)
+            {
+                LoadFromIsoStore();
+            }
+        }
+
+        internal static void SaveToIsoStore()
+        {
+            _servers.Dispose();
         }
 
         internal static void CleanUpForTests()
@@ -28,9 +39,55 @@ namespace NNS.Authentication.OAuth2
             _servers = new ServersWithAuthorizationCode();
         }
 
+        internal static void LoadFromIsoStore()
+        {
+            using (IsolatedStorageFile storageFile = IsolatedStorageFile.GetUserStoreForAssembly())
+            {
+                _servers = new ServersWithAuthorizationCode(NewServersWithAuthorizationCodeSetting.CleanEmptyInstance);
+
+                if (!storageFile.FileExists(FileName))
+                    return;
+
+                using (var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Open, FileAccess.Read, storageFile))
+                {
+                    XDocument document = XDocument.Load(fileStream);
+                    foreach (var element in document.Root.Elements("Server"))
+                    {
+                        _servers.Add(ServerWithAuthorizationCode.FromXElement(element));
+                    }
+                }
+            }
+        }
+
+        ~ServersWithAuthorizationCode()
+        {
+            if (!_disposed)
+                Dispose();
+        }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            var document = new XDocument(ToXElement());
+            using (var storageFile = IsolatedStorageFile.GetUserStoreForAssembly())
+            {
+                using (
+                    var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Create, FileAccess.Write,
+                                                                   storageFile))
+                {
+                    document.Save(fileStream);
+                }
+            }
+            _disposed = true;
+        }
+
+        private XElement ToXElement()
+        {
+            var root = new XElement("Servers");
+            foreach (var server in _servers)
+            {
+                root.Add(server.ToXElement());
+            }
+            return root;
         }
 
 

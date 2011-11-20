@@ -76,6 +76,9 @@ namespace NNS.Authentication.OAuth2.UnitTests
             element.Attribute("type").Should().NotBeNull();
             element.Attribute("type").Value.Should().Be("AuthorizationCode");
 
+            element.Element("Guid").Should().NotBeNull();
+            element.Element("Guid").Value.Should().Be(server.Guid.ToString());
+
             element.Element("ClientId").Should().NotBeNull();
             element.Element("ClientId").Value.Should().Be("clientid123");
 
@@ -91,6 +94,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var element = new XElement("Server");
             element.Add(new XAttribute("type", "AuthorizationCode"));
+            element.Add(new XElement("Guid", "f1287c12-1cf3-45b3-ac29-5bfce34b2145"));
             element.Add(new XElement("ClientId", "myspecialClientId"));
             element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
             element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
@@ -98,6 +102,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var server = ServerWithAuthorizationCode.FromXElement(element);
 
             server.ClientId.Should().Be("myspecialClientId");
+            server.Guid.ToString().Should().Be("f1287c12-1cf3-45b3-ac29-5bfce34b2145");
             server.AuthorizationRequestUri.ToString().Should().Be("http://example.com/anotherfunnyUri");
             server.RedirectionUri.ToString().Should().Be("http://example.com/behappy");
         }
@@ -108,13 +113,34 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var element = new XElement("Server");
             element.Add(new XAttribute("type", "incorrectType"));
+            element.Add(new XElement("Guid", "f1287c12-1cf3-45b3-ac29-5bfce34b2145"));
             element.Add(new XElement("ClientId", "myspecialClientId"));
             element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
             element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
 
             var server = ServerWithAuthorizationCode.FromXElement(element);
 
-            Assert.Fail();
+        }
+
+        [Test]
+        public void DisposeAndLoad()
+        {
+            ServersWithAuthorizationCode.CleanUpForTests();
+            var server1 = ServersWithAuthorizationCode.Add("server1",new Uri("http://example.org/uri1"), new Uri("http://example.org/uri2"));
+            ServersWithAuthorizationCode.Add("server2",new Uri("http://example.org/uri3"), new Uri("http://example.org/uri5"));
+
+            ServersWithAuthorizationCode.SaveToIsoStore();
+            ServersWithAuthorizationCode.LoadFromIsoStore();
+
+            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(server1.Guid);
+            server.Should().NotBeNull();
+            server.ClientId.Should().Be("server1");
+            server.AuthorizationRequestUri.ToString().Should().Be("http://example.org/uri1");
+            server.RedirectionUri.ToString().Should().Be("http://example.org/uri2");
+
+            var serverNull = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(Guid.NewGuid());
+            serverNull.Should().BeNull();
+
         }
 
     }
