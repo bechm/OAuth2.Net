@@ -8,7 +8,7 @@ namespace NNS.Authentication.OAuth2.Extensions
     {
         public static void RedirectToAuthorization(this IWebOperationContext context, Server server, Uri redirectionUri, ResourceOwner resourceOwner)
         {
-
+            throw new NotImplementedException();
         }
         
         public static void RedirectToAuthorization(this IWebOperationContext context, ServerWithAuthorizationCode server, ResourceOwner resourceOwner)
@@ -16,7 +16,7 @@ namespace NNS.Authentication.OAuth2.Extensions
             context.RedirectToAuthorization(server,server.RedirectionUri,resourceOwner);
         }
 
-        public static void AuthenticationRedirect(this HttpWebRequest webRequest, Server server, ResourceOwner resourceOwner)
+        public static Tuple<ServerWithAuthorizationCode,ResourceOwner> GetCredentialsFromAuthorizationRedirect(this IIncomingWebRequestContext incomingWebRequestContext)
         {
             throw new NotImplementedException();
         }

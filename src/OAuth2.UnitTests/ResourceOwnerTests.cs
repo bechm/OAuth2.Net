@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.Xml.Linq;
 using FluentAssertions;
 using Moq;
 using NNS.Authentication.OAuth2.Exceptions;
@@ -86,6 +87,20 @@ namespace NNS.Authentication.OAuth2.UnitTests
             resourceOwner.Should().NotBeNull();
             resourceOwner.Name.Should().Be("user1");
             resourceOwner.Guid.ToString().Should().Be("99c33d15-5fc1-417c-ae4e-0df51621c874");
+        }
+
+        [Test]
+        public void HasValidTokenFor()
+        {
+            var resourceOwner1 = ResourceOwners.Add("testusertoken1");
+            var resourceOwner2 = ResourceOwners.Add("testusertoken2");
+
+            var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
+            var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
+            var server = ServersWithAuthorizationCode.Add("testclienid", authorizationRequestUri, redirectUri);
+
+            Assert.Fail("need some structure to add a token");
+
         }
     }
 }
