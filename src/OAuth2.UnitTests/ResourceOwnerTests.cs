@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using FluentAssertions;
 using Moq;
 using NNS.Authentication.OAuth2.Exceptions;
 using NUnit.Framework;
@@ -69,18 +70,22 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var resourceOwner = new ResourceOwner("user1");
             var element = resourceOwner.ToXElement();
 
-            Assert.IsNotNull(element);
-            Assert.AreEqual("user1", element.Element("name").Value);
+            element.Should().NotBeNull();
+            element.Element("name").Should().NotBeNull();
+            element.Element("name").Value.Should().Be("user1");
+            element.Element("guid").Should().NotBeNull();
+            element.Element("guid").Value.Should().Be(resourceOwner.Guid.ToString());
         }
 
         [Test]
         public void ResourceOwnerFromXElement()
         {
-            var element = new XElement("ResourceOwner", new XElement("name", "user1"));
+            var element = new XElement("ResourceOwner", new XElement("name", "user1"), new XElement("guid", "99c33d15-5fc1-417c-ae4e-0df51621c874"));
             var resourceOwner = ResourceOwner.FromXElement(element);
 
-            Assert.IsNotNull(resourceOwner);
-            Assert.AreEqual("user1",resourceOwner.Name);
+            resourceOwner.Should().NotBeNull();
+            resourceOwner.Name.Should().Be("user1");
+            resourceOwner.Guid.ToString().Should().Be("99c33d15-5fc1-417c-ae4e-0df51621c874");
         }
     }
 }

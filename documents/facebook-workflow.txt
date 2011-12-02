@@ -1,0 +1,2 @@
+A -> https://www.facebook.com/dialog/oauth?client_id=268852326492238&redirect_uri=https%3A%2F%2Ftu-chemnitz%2Ede
+C <- https://tu-chemnitz.de/?code=AQBOQp6EpIGwVfR-qfgf5tO-1uUhsKvno_LUd5H2PY71JsquwAQE-X8JB6Dl-saBM0SyUJKx19FOyFc_uFjC6WIVuQCMOEnYrrLcmEpdPGoHxz520tSa--C4BN8WzJS0GjawDoNDp8RhCOGk3-R43QacOE9_6LC2q7gbYnrOAmu4tcD20SatPYC1Cq0XGV4vF7WXTNenpk2Xo9_VV5wD-B_e#_=_

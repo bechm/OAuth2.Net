@@ -2,11 +2,11 @@
 using System.Net;
 using System.Runtime.Remoting.Proxies;
 using System.ServiceModel.Web;
+using FluentAssertions;
 using Moq;
 using NNS.Authentication.OAuth2.Extensions;
 using NUnit.Framework;
 using NUnit.Mocks;
-using WebOperationContext = System.ServiceModel.Web.MockedWebOperationContext;
 
 namespace NNS.Authentication.OAuth2.AcceptanceTests
 {
@@ -32,30 +32,28 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
         }
 
         [Test]
-        public void CreateServerAndUsersAndGetCorrectRedirect()
+        public void CreateServerAndUsersAndGetCorrectRedirectToAuthorizationRequest()
         {
-            Mock<IWebOperationContext> mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
-            using (new MockedWebOperationContext(mockContext.Object))
-            {
-                var outgoingRespose = WebOperationContext.Current.OutgoingResponse;
-                outgoingRespose.SetStatusAsNotFound("notfound");
-            }
+            // Spec v2-22 4.1.1
 
             var resourceOwner = ResourceOwners.GetResourceOwner(_resourceOwnerName);
             var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
 
-            //Da soll es mal hin gehen:
-            //if (!resourceOwner.HasValidTokenFor(server))
-            //{
-            //    context.RedirectToAuthorization(server, resourceOwner);
-            //}
-            
-            //TODO: WebRequest Mocken und überpüfen
-            // wir haben irgend einen gemockten WebRequest, 
-            // den wir auf die LoginSeite redirecten müssen und 
-            // dabei überprüfen ob die Parameter alle richtig gesetzt wurden
 
-            Assert.Fail("Test is not completed yet");
+            Mock<IWebOperationContext> mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
+
+            resourceOwner.HasValidTokenFor(server).Should().BeFalse();
+           
+            var context = mockContext.Object;
+            context.RedirectToAuthorization(server, resourceOwner);
+
+            context.OutgoingResponse.StatusCode.ToString().Should().Be("303 See Other");
+
+            var expectedRedirectionUri = "http://example.com/AuthorizationRequest?response_type=code&client_id=" + 
+                server.ClientId + 
+                "&state=" + resourceOwner.Guid +
+                "&redirect_uri=http%3A%2F%2Fexample%2Ecom%2FRedirectionUri";
+            context.OutgoingResponse.Headers.Get("Location").Should().Be(expectedRedirectionUri);
         }
 
         [Test]

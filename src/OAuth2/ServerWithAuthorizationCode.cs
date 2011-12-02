@@ -10,7 +10,7 @@ namespace NNS.Authentication.OAuth2
     public class ServerWithAuthorizationCode : Server
     {
         public String ClientId { get; private set; }
-        public Uri RedirectionUri { get; private set; }
+        public Uri RedirectionUri { get; set; }
 
         internal ServerWithAuthorizationCode(string clientId, Uri authorizationRequestUri, Uri redirectionUri)
         {

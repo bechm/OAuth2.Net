@@ -26,6 +26,12 @@ namespace NNS.Authentication.OAuth2
 
         public static Boolean operator ==(Token token1, Token token2)
         {
+            var token1IsNull = object.ReferenceEquals(token1, null);
+            var token2IsNull = object.ReferenceEquals(token2, null);
+            if(token1IsNull && token2IsNull)
+                return true;
+            if(token1IsNull || token2IsNull)
+                return false;
             return token1.Equals(token2);
         }
 
@@ -41,9 +47,11 @@ namespace NNS.Authentication.OAuth2
 
         public override bool Equals(object obj)
         {
-            if (object.Equals(this, null) && obj == null)
+            var token1IsNull = object.ReferenceEquals(this, null);
+            var token2IsNull = object.ReferenceEquals(obj, null);
+            if (token1IsNull && token2IsNull)
                 return true;
-            if (obj == null)
+            if (token1IsNull || token2IsNull)
                 return false;
             if(obj is Token)
                 return Equals((Token) obj);

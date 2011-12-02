@@ -38,6 +38,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             (token1 == token5).Should().BeTrue();
             (token1 == token2).Should().BeFalse();
             (token1 != token2).Should().BeTrue();
+            (token1 == null).Should().BeFalse();
 
             token1.Equals(42).Should().BeFalse();
             token1.Equals(null).Should().BeFalse();
@@ -54,15 +55,17 @@ namespace NNS.Authentication.OAuth2.UnitTests
             Tokens.CleanUpForTests();
             var token1 = Tokens.GetToken(server1, resourceOwner1);
 
+            token1.Should().NotBeNull();
             token1.ResourceOwner.Should().Be(resourceOwner1);
             token1.Server.Should().Be(server1);
-            token1.AuthorizationCode.Should().Be("");
-            token1.AccessToken.Should().Be("");
-            token1.RefreshToken.Should().Be("");
+            token1.AuthorizationCode.Should().BeNullOrEmpty();
+            token1.AccessToken.Should().BeNullOrEmpty();
+            token1.RefreshToken.Should().BeNullOrEmpty();
 
             token1.AuthorizationCode = "AuthorizationCode";
             token1.AccessToken = "AccessToken";
             token1.RefreshToken = "RefreshToken";
+            token1.Expires = DateTime.Now;
 
             var token2 = Tokens.GetToken(server1, resourceOwner1);
 
@@ -102,9 +105,9 @@ namespace NNS.Authentication.OAuth2.UnitTests
         public void TokenFromXElement()
         {
             var element = new XElement("Token");
-            var server = ServersWithAuthorizationCode.Add("testclient", new Uri("http://example.com/uri1"),
+            var server = ServersWithAuthorizationCode.Add("testclient1", new Uri("http://example.com/uri1"),
                                                           new Uri("http://example.com/uri2"));
-            var resourceOwner = ResourceOwners.Add("testuser");
+            var resourceOwner = ResourceOwners.Add("testuser1");
 
             element.Add(new XElement("Server", server.Guid.ToString()));
             element.Add(new XElement("ResourceOwner", resourceOwner.Name));
@@ -130,7 +133,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
                                                           new Uri("http://example.com/uri2"));
             var resourceOwner1 = ResourceOwners.Add("testuser");
 
-            Token token = Tokens.Add(server1, resourceOwner1);
+            Token token = Tokens.GetToken(server1, resourceOwner1);
             token.Expires = DateTime.Now;
             token.AccessToken = "token1";
             token.AuthorizationCode = "token2";
@@ -141,7 +144,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
 
             var tokenAfter = Tokens.GetToken(server1,resourceOwner1);
             tokenAfter.Should().NotBeNull();
-            tokenAfter.Expires.Should().Be(token.Expires);
+            tokenAfter.Expires.ToString().Should().Be(token.Expires.ToString());
             tokenAfter.AccessToken.Should().Be(token.AccessToken);
             tokenAfter.AuthorizationCode.Should().Be(token.AuthorizationCode);
             tokenAfter.RefreshToken.Should().Be(token.RefreshToken);
