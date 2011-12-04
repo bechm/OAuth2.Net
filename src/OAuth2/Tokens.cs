@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace NNS.Authentication.OAuth2
 {
-    public class Tokens : List<Token>, IDisposable
+    internal class Tokens : List<Token>, IDisposable
     {
         private static Tokens _tokens;
         private const String FileName = "Tokens.xml";
@@ -45,6 +45,17 @@ namespace NNS.Authentication.OAuth2
             return token;
         }
 
+        internal static void AddToken(Token token)
+        {
+            GetTokensInstance();
+            _tokens.Add(token);
+        }
+
+        private static void GetTokensInstance()
+        {
+            if (_tokens == null)
+                _tokens = new Tokens();
+        }
 
         public static void SaveToIsoStore()
         {
@@ -95,6 +106,7 @@ namespace NNS.Authentication.OAuth2
         private static XElement ToXElement()
         {
             var root = new XElement("Tokens");
+            GetTokensInstance();
             foreach (var token in _tokens)
             {
                 root.Add(token.ToXElement());

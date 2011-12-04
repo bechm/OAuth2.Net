@@ -39,10 +39,13 @@ namespace NNS.Authentication.OAuth2.UnitTests
             ResourceOwners.Add("user2");
 
             var resourceOwner = ResourceOwners.GetResourceOwner("user1");
-            Assert.AreEqual("user1", resourceOwner.Name);
+            resourceOwner.Name.Should().Be("user1");
+            ResourceOwners.GetResourceOwner(resourceOwner.Guid).Should().NotBeNull();
 
             var resourceOwnerNull = ResourceOwners.GetResourceOwner("foo");
-            Assert.IsNull(resourceOwnerNull);
+            resourceOwnerNull.Should().BeNull();
+            ResourceOwners.GetResourceOwner(Guid.NewGuid()).Should().BeNull();
+
 
         }
 
@@ -99,7 +102,11 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
             var server = ServersWithAuthorizationCode.Add("testclienid", authorizationRequestUri, redirectUri);
 
-            Assert.Fail("need some structure to add a token");
+            var token = new Token(server, resourceOwner1);
+            Tokens.AddToken(token);
+
+            resourceOwner1.HasValidTokenFor(server).Should().BeTrue();
+            resourceOwner2.HasValidTokenFor(server).Should().BeTrue();
 
         }
     }

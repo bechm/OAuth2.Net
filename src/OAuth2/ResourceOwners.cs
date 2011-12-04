@@ -104,6 +104,13 @@ namespace NNS.Authentication.OAuth2
             return resourceOwner;
         }
 
+        public static ResourceOwner GetResourceOwner(Guid guid)
+        {
+            GetInstanceOfResourceOwner();
+
+            return _resourceOwners.FirstOrDefault(item => item.Guid == guid);
+        }
+
         public static ResourceOwner GetResourceOwner(String name)
         {
             GetInstanceOfResourceOwner();

@@ -34,7 +34,7 @@ namespace NNS.Authentication.OAuth2
 
         public Boolean HasValidTokenFor(ServerWithAuthorizationCode server)
         {
-            throw new NotImplementedException();
+            return Tokens.GetToken(server, this) != null;
         }
     }
 }
