@@ -60,14 +60,6 @@ namespace NNS.Authentication.OAuth2.TestClient
             mock.SetupAllProperties();
 
             incommingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
-            //var headers = new NameValueCollection();
-            //var values = webBrowser1.Url.Query.Substring(1).Split('&');
-            //foreach (var value in values)
-            //{
-            //    var pair = value.Split('=');
-            //    headers.Add(pair[0],pair[1]);
-            //}
-            //incommingRequest.UriTemplateMatch.QueryParameters.Add(headers);
 
             var tuple = incommingRequest.GetCredentialsFromAuthorizationRedirect();
             var token = Tokens.GetToken(tuple.Item1, tuple.Item2);

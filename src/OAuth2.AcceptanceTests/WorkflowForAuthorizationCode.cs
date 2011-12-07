@@ -37,23 +37,22 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             // Spec v2-22 4.1.1
 
             var resourceOwner = ResourceOwners.GetResourceOwner(_resourceOwnerName);
-            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
+            var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri,
+                                                                                     _redirectionUri);
 
-            var mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
-            
+            var mockContext = new Mock<IOutgoingWebResponseContext> {DefaultValue = DefaultValue.Mock};
+            mockContext.SetupAllProperties();
             resourceOwner.AuthorizesMeToAccessTo(server).Should().BeFalse();
 
-            //var outgoingResponse = mockContext.Object;
-            using (new MockedWebOperationContext(mockContext.Object))
-            {
-                var outgoingResponse = WebOperationContext.Current.OutgoingResponse;
-                outgoingResponse.RedirectToAuthorization(server, resourceOwner);
 
-                outgoingResponse.StatusCode.ToString().Should().Be("303 See Other");
-                outgoingResponse.Headers.Get("Location").Should().NotBeNullOrEmpty();
-            }
+            var outgoingResponse = mockContext.Object;
+            outgoingResponse.RedirectToAuthorization(server, resourceOwner);
+
+            outgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
+            outgoingResponse.Location.Should().NotBeNullOrEmpty();
+
         }
-        
+
         [Test]
         public void GetAuthorizationCodeViaUserAgentAndRequestProtectedResource()
         {
@@ -65,12 +64,14 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             var resourceOwnertmp = ResourceOwners.GetResourceOwner(_resourceOwnerName);
             var servertmp = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
 
-            var mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
-            var context = mockContext.Object;
-            context.IncomingRequest.UriTemplateMatch.RequestUri = _redirectionUri;
-            context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
-            context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("state", servertmp.Guid.ToString() + "_" + resourceOwnertmp.Guid.ToString());
-            var tuple = context.IncomingRequest.GetCredentialsFromAuthorizationRedirect();
+            var mockContext = new Mock<IIncomingWebRequestContext> { DefaultValue = DefaultValue.Mock };
+            mockContext.SetupAllProperties();
+            var incommingRequest = mockContext.Object;
+
+            incommingRequest.UriTemplateMatch.RequestUri = _redirectionUri;
+            incommingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
+            incommingRequest.UriTemplateMatch.QueryParameters.Add("state", servertmp.Guid.ToString() + "_" + resourceOwnertmp.Guid.ToString());
+            var tuple = incommingRequest.GetCredentialsFromAuthorizationRedirect();
 
             var server = tuple.Item1;
             var resourceOwner = tuple.Item2;
