@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using FluentAssertions;
@@ -98,6 +100,32 @@ namespace NNS.Authentication.OAuth2.UnitTests
         public void GetCredentialsFromAuthorizationRedirectTestSecurityAsserts()
         {
             Assert.Fail("need to look up after the right Referer for Security Asserts");
+        }
+
+        [Test]
+        public void RedirectToAuthorizationTest()
+        {
+            var resourceOwner = ResourceOwners.Add("testauthredirect1");
+
+            var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
+            var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
+            var server = ServersWithAuthorizationCode.Add("testauthredirectserver", authorizationRequestUri, redirectUri);
+            
+            var mock = new Mock<IOutgoingWebResponseContext>() {};
+            var outgoingResponse = mock.Object;
+            mock.SetupAllProperties();
+
+            outgoingResponse.RedirectToAuthorization(server, resourceOwner);
+            outgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
+
+            var expectedRedirectionUri = "http://example.com/TokenTest/AuthRequest?response_type=code&client_id=" +
+                                         server.ClientId +
+                                         "&state=" + server.Guid + "_" + resourceOwner.Guid +
+                                         "&redirect_uri=http%3a%2f%2fexample.com%2fTokenTest%2fRedirect";
+            outgoingResponse.Location.Should().Be(expectedRedirectionUri);
+
+
+
         }
     }
 }

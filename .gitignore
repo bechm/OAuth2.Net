@@ -11,3 +11,6 @@
 /src/OAuth2.AcceptanceTests/obj
 /src/WCFMock/obj
 /src/WCFMock/bin
+
+/src/OAuth2.TestClient/bin
+/src/OAuth2.TestClient/obj

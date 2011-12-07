@@ -44,18 +44,23 @@ namespace NNS.Authentication.OAuth2
             using (IsolatedStorageFile storageFile = IsolatedStorageFile.GetUserStoreForAssembly())
             {
                 _servers = new ServersWithAuthorizationCode(NewServersWithAuthorizationCodeSetting.CleanEmptyInstance);
-
-                if (!storageFile.FileExists(FileName))
-                    return;
-
-                using (var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Open, FileAccess.Read, storageFile))
+                try
                 {
-                    XDocument document = XDocument.Load(fileStream);
-                    foreach (var element in document.Root.Elements("Server"))
+                    if (!storageFile.FileExists(FileName))
+                        return;
+
+                    using (
+                        var fileStream = new IsolatedStorageFileStream(FileName, FileMode.Open, FileAccess.Read,
+                                                                       storageFile))
                     {
-                        _servers.Add(ServerWithAuthorizationCode.FromXElement(element));
+                        XDocument document = XDocument.Load(fileStream);
+                        foreach (var element in document.Root.Elements("Server"))
+                        {
+                            _servers.Add(ServerWithAuthorizationCode.FromXElement(element));
+                        }
                     }
                 }
+                catch (Exception) { }
             }
         }
 

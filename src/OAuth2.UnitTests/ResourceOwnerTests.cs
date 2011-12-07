@@ -93,7 +93,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         }
 
         [Test]
-        public void HasValidTokenFor()
+        public void AuthorizesMeToAccessTo()
         {
             var resourceOwner1 = ResourceOwners.Add("testusertoken1");
             var resourceOwner2 = ResourceOwners.Add("testusertoken2");
@@ -103,10 +103,11 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var server = ServersWithAuthorizationCode.Add("testclienid", authorizationRequestUri, redirectUri);
 
             var token = new Token(server, resourceOwner1);
+            token.AuthorizationCode = "foobar";
             Tokens.AddToken(token);
 
-            resourceOwner1.HasValidTokenFor(server).Should().BeTrue();
-            resourceOwner2.HasValidTokenFor(server).Should().BeTrue();
+            resourceOwner1.AuthorizesMeToAccessTo(server).Should().BeTrue();
+            resourceOwner2.AuthorizesMeToAccessTo(server).Should().BeFalse();
 
         }
     }

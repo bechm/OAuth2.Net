@@ -32,9 +32,9 @@ namespace NNS.Authentication.OAuth2
                 new XElement("guid", Guid));
         }
 
-        public Boolean HasValidTokenFor(ServerWithAuthorizationCode server)
+        public Boolean AuthorizesMeToAccessTo(ServerWithAuthorizationCode server)
         {
-            return Tokens.GetToken(server, this) != null;
+            return !string.IsNullOrEmpty(Tokens.GetToken(server, this).AuthorizationCode);
         }
     }
 }

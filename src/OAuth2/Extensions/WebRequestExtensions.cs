@@ -2,21 +2,45 @@
 using System.Net;
 using System.Security.Authentication;
 using System.ServiceModel.Web;
+using System.Web;
 using NNS.Authentication.OAuth2.Exceptions;
 
 namespace NNS.Authentication.OAuth2.Extensions
 {
     public static class WebRequestExtensions
     {
-        public static void RedirectToAuthorization(this IWebOperationContext context, Server server, Uri redirectionUri, ResourceOwner resourceOwner)
+        public static void RedirectToAuthorization(this OutgoingWebResponseContext outgoingResponse, ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)
         {
-            throw new NotImplementedException();
+            outgoingResponse.StatusCode = HttpStatusCode.Redirect;
+            outgoingResponse.Location = GetAuthorizationLocation(server, redirectionUri, resourceOwner);
         }
-        
-        public static void RedirectToAuthorization(this IWebOperationContext context, ServerWithAuthorizationCode server, ResourceOwner resourceOwner)
+
+        public static void RedirectToAuthorization(this IOutgoingWebResponseContext outgoingResponse, ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)
         {
-            context.RedirectToAuthorization(server,server.RedirectionUri,resourceOwner);
+
+            outgoingResponse.StatusCode = HttpStatusCode.Redirect;
+            outgoingResponse.Location = GetAuthorizationLocation(server, redirectionUri, resourceOwner);
         }
+
+        private static string GetAuthorizationLocation(ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)
+        {
+            return server.AuthorizationRequestUri + "?response_type=code&client_id=" +
+                   server.ClientId +
+                   "&state=" + server.Guid + "_" + resourceOwner.Guid +
+                   "&redirect_uri=" + HttpUtility.UrlEncode(redirectionUri.ToString());
+        }
+
+        public static void RedirectToAuthorization(this OutgoingWebResponseContext outgoingResponse, ServerWithAuthorizationCode server, ResourceOwner resourceOwner)
+        {
+            outgoingResponse.RedirectToAuthorization(server, server.RedirectionUri, resourceOwner);
+        }
+
+        public static void RedirectToAuthorization(this IOutgoingWebResponseContext outgoingResponse, ServerWithAuthorizationCode server, ResourceOwner resourceOwner)
+        {
+            outgoingResponse.RedirectToAuthorization(server, server.RedirectionUri, resourceOwner);
+        }
+
+
 
         public static Tuple<ServerWithAuthorizationCode,ResourceOwner> GetCredentialsFromAuthorizationRedirect(this IIncomingWebRequestContext incomingWebRequestContext)
         {

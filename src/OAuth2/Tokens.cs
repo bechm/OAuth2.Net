@@ -35,6 +35,7 @@ namespace NNS.Authentication.OAuth2
 
         internal static Token GetToken(ServerWithAuthorizationCode server, ResourceOwner resourceOwner)
         {
+            GetTokensInstance();
             var token =
                 _tokens.FirstOrDefault(t => (t.Server.Guid == server.Guid && t.ResourceOwner.Name == resourceOwner.Name));
             if(token == null)

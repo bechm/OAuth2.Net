@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using NNS.Authentication.OAuth2.Exceptions;
 
 namespace NNS.Authentication.OAuth2
 {
-    public class Token
+    internal class Token
     {
         internal Server Server { get; private set; }
         internal ResourceOwner ResourceOwner { get; private set; }

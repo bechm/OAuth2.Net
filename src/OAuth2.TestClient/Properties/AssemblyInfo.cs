@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("OAuth2")]
+[assembly: AssemblyTitle("OAuth2.TestClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("NNS")]
-[assembly: AssemblyProduct("OAuth2")]
-[assembly: AssemblyCopyright("Copyright © Rene Stöckmann  2011")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("OAuth2.TestClient")]
+[assembly: AssemblyCopyright("Copyright ©  2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("d8ffa010-8b43-4604-9366-3e470d0b637b")]
+[assembly: Guid("9eef7de5-fc3c-40e1-83f4-849ffce82ad2")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //
@@ -34,6 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-[assembly: InternalsVisibleTo("OAuth2.UnitTests")]
-[assembly: InternalsVisibleTo("OAuth2.TestClient")]
