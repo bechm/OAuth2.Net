@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbServer = new System.Windows.Forms.GroupBox();
+            this.lblServerGUID = new System.Windows.Forms.Label();
             this.cmdServerCreate = new System.Windows.Forms.Button();
             this.txtServerAuthorizationUri = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.txtServerClientId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbResourceOwner = new System.Windows.Forms.GroupBox();
+            this.lblResourceOwnerGUID = new System.Windows.Forms.Label();
             this.cmdResourceOwnerCreate = new System.Windows.Forms.Button();
             this.txtResourceOwnerName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,8 +56,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.cmdGetToken = new System.Windows.Forms.Button();
-            this.lblServerGUID = new System.Windows.Forms.Label();
-            this.lblResourceOwnerGUID = new System.Windows.Forms.Label();
+            this.txtClientSharedSecret = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.gbServer.SuspendLayout();
             this.gbResourceOwner.SuspendLayout();
             this.gbWorkflow.SuspendLayout();
@@ -66,6 +68,8 @@
             // 
             this.gbServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbServer.Controls.Add(this.txtClientSharedSecret);
+            this.gbServer.Controls.Add(this.label6);
             this.gbServer.Controls.Add(this.lblServerGUID);
             this.gbServer.Controls.Add(this.cmdServerCreate);
             this.gbServer.Controls.Add(this.txtServerAuthorizationUri);
@@ -76,15 +80,24 @@
             this.gbServer.Controls.Add(this.label1);
             this.gbServer.Location = new System.Drawing.Point(3, 3);
             this.gbServer.Name = "gbServer";
-            this.gbServer.Size = new System.Drawing.Size(635, 127);
+            this.gbServer.Size = new System.Drawing.Size(635, 162);
             this.gbServer.TabIndex = 0;
             this.gbServer.TabStop = false;
             this.gbServer.Text = "Server";
             // 
+            // lblServerGUID
+            // 
+            this.lblServerGUID.AutoSize = true;
+            this.lblServerGUID.Location = new System.Drawing.Point(125, 133);
+            this.lblServerGUID.Name = "lblServerGUID";
+            this.lblServerGUID.Size = new System.Drawing.Size(25, 13);
+            this.lblServerGUID.TabIndex = 7;
+            this.lblServerGUID.Text = "???";
+            // 
             // cmdServerCreate
             // 
             this.cmdServerCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdServerCreate.Location = new System.Drawing.Point(554, 98);
+            this.cmdServerCreate.Location = new System.Drawing.Point(554, 133);
             this.cmdServerCreate.Name = "cmdServerCreate";
             this.cmdServerCreate.Size = new System.Drawing.Size(75, 23);
             this.cmdServerCreate.TabIndex = 6;
@@ -96,7 +109,7 @@
             // 
             this.txtServerAuthorizationUri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServerAuthorizationUri.Location = new System.Drawing.Point(128, 69);
+            this.txtServerAuthorizationUri.Location = new System.Drawing.Point(128, 102);
             this.txtServerAuthorizationUri.Name = "txtServerAuthorizationUri";
             this.txtServerAuthorizationUri.Size = new System.Drawing.Size(501, 20);
             this.txtServerAuthorizationUri.TabIndex = 5;
@@ -104,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 72);
+            this.label3.Location = new System.Drawing.Point(7, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 13);
             this.label3.TabIndex = 4;
@@ -114,7 +127,7 @@
             // 
             this.txtServerRedirectionUri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServerRedirectionUri.Location = new System.Drawing.Point(128, 43);
+            this.txtServerRedirectionUri.Location = new System.Drawing.Point(128, 76);
             this.txtServerRedirectionUri.Name = "txtServerRedirectionUri";
             this.txtServerRedirectionUri.Size = new System.Drawing.Size(501, 20);
             this.txtServerRedirectionUri.TabIndex = 3;
@@ -122,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 46);
+            this.label2.Location = new System.Drawing.Point(7, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 2;
@@ -154,12 +167,21 @@
             this.gbResourceOwner.Controls.Add(this.cmdResourceOwnerCreate);
             this.gbResourceOwner.Controls.Add(this.txtResourceOwnerName);
             this.gbResourceOwner.Controls.Add(this.label4);
-            this.gbResourceOwner.Location = new System.Drawing.Point(4, 137);
+            this.gbResourceOwner.Location = new System.Drawing.Point(4, 171);
             this.gbResourceOwner.Name = "gbResourceOwner";
             this.gbResourceOwner.Size = new System.Drawing.Size(634, 70);
             this.gbResourceOwner.TabIndex = 1;
             this.gbResourceOwner.TabStop = false;
             this.gbResourceOwner.Text = "ResourceOwner";
+            // 
+            // lblResourceOwnerGUID
+            // 
+            this.lblResourceOwnerGUID.AutoSize = true;
+            this.lblResourceOwnerGUID.Location = new System.Drawing.Point(124, 44);
+            this.lblResourceOwnerGUID.Name = "lblResourceOwnerGUID";
+            this.lblResourceOwnerGUID.Size = new System.Drawing.Size(25, 13);
+            this.lblResourceOwnerGUID.TabIndex = 8;
+            this.lblResourceOwnerGUID.Text = "???";
             // 
             // cmdResourceOwnerCreate
             // 
@@ -199,9 +221,9 @@
             this.gbWorkflow.Controls.Add(this.webBrowser1);
             this.gbWorkflow.Controls.Add(this.lblAuthorizationCode);
             this.gbWorkflow.Controls.Add(this.cmdAuthorizationCodeRedirect);
-            this.gbWorkflow.Location = new System.Drawing.Point(4, 214);
+            this.gbWorkflow.Location = new System.Drawing.Point(4, 247);
             this.gbWorkflow.Name = "gbWorkflow";
-            this.gbWorkflow.Size = new System.Drawing.Size(634, 299);
+            this.gbWorkflow.Size = new System.Drawing.Size(634, 266);
             this.gbWorkflow.TabIndex = 2;
             this.gbWorkflow.TabStop = false;
             this.gbWorkflow.Text = "Workflow";
@@ -224,7 +246,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(9, 62);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(619, 231);
+            this.webBrowser1.Size = new System.Drawing.Size(619, 198);
             this.webBrowser1.TabIndex = 2;
             // 
             // lblAuthorizationCode
@@ -337,23 +359,23 @@
             this.cmdGetToken.Text = "Get Token";
             this.cmdGetToken.UseVisualStyleBackColor = true;
             // 
-            // lblServerGUID
+            // txtClientSharedSecret
             // 
-            this.lblServerGUID.AutoSize = true;
-            this.lblServerGUID.Location = new System.Drawing.Point(125, 98);
-            this.lblServerGUID.Name = "lblServerGUID";
-            this.lblServerGUID.Size = new System.Drawing.Size(25, 13);
-            this.lblServerGUID.TabIndex = 7;
-            this.lblServerGUID.Text = "???";
+            this.txtClientSharedSecret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClientSharedSecret.Location = new System.Drawing.Point(128, 43);
+            this.txtClientSharedSecret.Name = "txtClientSharedSecret";
+            this.txtClientSharedSecret.Size = new System.Drawing.Size(501, 20);
+            this.txtClientSharedSecret.TabIndex = 9;
             // 
-            // lblResourceOwnerGUID
+            // label6
             // 
-            this.lblResourceOwnerGUID.AutoSize = true;
-            this.lblResourceOwnerGUID.Location = new System.Drawing.Point(124, 44);
-            this.lblResourceOwnerGUID.Name = "lblResourceOwnerGUID";
-            this.lblResourceOwnerGUID.Size = new System.Drawing.Size(25, 13);
-            this.lblResourceOwnerGUID.TabIndex = 8;
-            this.lblResourceOwnerGUID.Text = "???";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "ClientSharedSecret";
             // 
             // OAuthServerWithAuthorizationCode
             // 
@@ -407,5 +429,7 @@
         private System.Windows.Forms.Button cmdGetAuthorizationCode;
         private System.Windows.Forms.Label lblServerGUID;
         private System.Windows.Forms.Label lblResourceOwnerGUID;
+        private System.Windows.Forms.TextBox txtClientSharedSecret;
+        private System.Windows.Forms.Label label6;
     }
 }

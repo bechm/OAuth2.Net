@@ -60,9 +60,7 @@
     <Compile Include="Token.cs" />
     <Compile Include="Tokens.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Clients\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WCFMock\WCFMock.csproj">
       <Project>{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}</Project>

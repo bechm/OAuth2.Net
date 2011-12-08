@@ -100,7 +100,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
 
             var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
-            var server = ServersWithAuthorizationCode.Add("testclienid", authorizationRequestUri, redirectUri);
+            var server = ServersWithAuthorizationCode.Add("testclienid", "testsecret", authorizationRequestUri, redirectUri);
 
             var token = new Token(server, resourceOwner1);
             token.AuthorizationCode = "foobar";

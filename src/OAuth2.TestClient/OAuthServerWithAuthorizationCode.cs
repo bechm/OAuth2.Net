@@ -23,6 +23,7 @@ namespace NNS.Authentication.OAuth2.TestClient
         private void CmdServerCreateClick(object sender, EventArgs e)
         {
             _server = ServersWithAuthorizationCode.Add(txtServerClientId.Text,
+                                                       txtClientSharedSecret.Text,
                                                        new Uri(txtServerAuthorizationUri.Text),
                                                        new Uri(txtServerRedirectionUri.Text));
             lblServerGUID.Text = _server.Guid.ToString();

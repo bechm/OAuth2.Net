@@ -12,6 +12,7 @@ namespace NNS.Authentication.OAuth2.Extensions
         public static void RedirectToAuthorization(this OutgoingWebResponseContext outgoingResponse, ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)
         {
             outgoingResponse.StatusCode = HttpStatusCode.Redirect;
+            SetRedirectUriInToken(server, resourceOwner, redirectionUri);
             outgoingResponse.Location = GetAuthorizationLocation(server, redirectionUri, resourceOwner);
         }
 
@@ -19,7 +20,14 @@ namespace NNS.Authentication.OAuth2.Extensions
         {
 
             outgoingResponse.StatusCode = HttpStatusCode.Redirect;
+            SetRedirectUriInToken(server, resourceOwner, redirectionUri);
             outgoingResponse.Location = GetAuthorizationLocation(server, redirectionUri, resourceOwner);
+        }
+
+        private static void SetRedirectUriInToken(ServerWithAuthorizationCode server, ResourceOwner resourceOwner, Uri redirectionUri)
+        {
+            var token = Tokens.GetToken(server, resourceOwner);
+            token.RedirectUri = redirectionUri;
         }
 
         private static string GetAuthorizationLocation(ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)

@@ -33,7 +33,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
 
             var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
-            var server = ServersWithAuthorizationCode.Add("testclienid", authorizationRequestUri, redirectUri);
+            var server = ServersWithAuthorizationCode.Add("testclienid", "testsecret", authorizationRequestUri, redirectUri);
 
             Mock<IWebOperationContext> mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
             var context = mockContext.Object;
@@ -109,7 +109,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
 
             var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
-            var server = ServersWithAuthorizationCode.Add("testauthredirectserver", authorizationRequestUri, redirectUri);
+            var server = ServersWithAuthorizationCode.Add("testauthredirectserver", "testsecret", authorizationRequestUri, redirectUri);
             
             var mock = new Mock<IOutgoingWebResponseContext>() {};
             var outgoingResponse = mock.Object;
@@ -124,6 +124,8 @@ namespace NNS.Authentication.OAuth2.UnitTests
                                          "&redirect_uri=http%3a%2f%2fexample.com%2fTokenTest%2fRedirect";
             outgoingResponse.Location.Should().Be(expectedRedirectionUri);
 
+            var token = Tokens.GetToken(server, resourceOwner);
+            token.RedirectUri.ToString().Should().Be(redirectUri.ToString());
 
 
         }

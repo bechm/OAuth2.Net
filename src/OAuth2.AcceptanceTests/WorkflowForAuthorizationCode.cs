@@ -16,6 +16,7 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
         private Uri _redirectionUri;
         private string _resourceOwnerName ;
         private string _clientId;
+        private string _clientSharedSecret;
 
         [SetUp]
         public void SetUp()
@@ -25,10 +26,11 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
                 ResourceOwners.Add(_resourceOwnerName);
 
             _clientId = "268852326492238";
+            _clientSharedSecret = "124564561125648";
             _authorizationRequestUri = new Uri("http://example.com/AuthorizationRequest");
             _redirectionUri = new Uri("http://example.com/RedirectionUri");
             if (!ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(_clientId, _authorizationRequestUri, _redirectionUri))
-                ServersWithAuthorizationCode.Add(_clientId, _authorizationRequestUri, _redirectionUri);
+                ServersWithAuthorizationCode.Add(_clientId, _clientSharedSecret, _authorizationRequestUri, _redirectionUri);
         }
 
         [Test]
