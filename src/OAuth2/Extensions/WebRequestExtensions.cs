@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Security.Authentication;
 using System.ServiceModel.Web;
@@ -32,9 +33,12 @@ namespace NNS.Authentication.OAuth2.Extensions
 
         private static string GetAuthorizationLocation(ServerWithAuthorizationCode server, Uri redirectionUri, ResourceOwner resourceOwner)
         {
+            var scopes = server.Scopes.Aggregate("", (current, scope) => current + (scope + " ")).Trim();
+
             return server.AuthorizationRequestUri + "?response_type=code&client_id=" +
                    server.ClientId +
                    "&state=" + server.Guid + "_" + resourceOwner.Guid +
+                   "&scope=" + HttpUtility.UrlEncode(scopes) +
                    "&redirect_uri=" + HttpUtility.UrlEncode(redirectionUri.ToString());
         }
 

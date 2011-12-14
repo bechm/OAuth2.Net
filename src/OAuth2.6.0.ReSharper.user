@@ -9,57 +9,57 @@
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:OutgoingWebResponseContextWrapper.cs" caret="1470" fromTop="13" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:MockedWebOperationContext.cs" caret="1862" fromTop="21" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:InvalidTypeException.cs" caret="599" fromTop="18" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="7207" fromTop="39" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwners.cs" caret="3526" fromTop="24" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:InvalidAuthorizationRequestException.cs" caret="56" fromTop="2" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Exceptions/f:RequiredElementMissingException.cs" caret="109" fromTop="5" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="0" fromTop="0" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Server.cs" caret="242" fromTop="10" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Tokens.cs" caret="1092" fromTop="20" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ResourceOwner.cs" caret="1089" fromTop="23" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="3954" fromTop="34" />
       <File id="1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9/f:IOutgoingWebResponseContext.cs" caret="1666" fromTop="18" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="2345" fromTop="31" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:WebRequestExtensionsTests.cs" caret="701" fromTop="0" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="2274" fromTop="23" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="2270" fromTop="0" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3852" fromTop="32" />
       <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1580" fromTop="31" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="2002" fromTop="33" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="3937" fromTop="7" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="0" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Extensions/f:WebRequestExtensions.cs" caret="1457" fromTop="22" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="2490" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="667" fromTop="0" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="3851" fromTop="27" />
+      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="847" fromTop="22" />
+      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1274" fromTop="0" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="884" fromTop="21" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="3740" fromTop="27" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="6677" fromTop="14" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6222" fromTop="60" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:WebRequestExtensionsTests.cs" caret="5140" fromTop="4" />
     </RecentFiles>
     <RecentEdits>
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="5615" fromTop="21" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="1013" fromTop="24" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="1267" fromTop="30" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="2027" fromTop="27" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="2274" fromTop="23" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="2494" fromTop="35" />
-      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="2274" fromTop="23" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1964" fromTop="24" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1827" fromTop="20" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="2122" fromTop="28" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3438" fromTop="28" />
-      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="3014" fromTop="24" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6771" fromTop="27" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="4283" fromTop="26" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="4154" fromTop="24" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="4235" fromTop="28" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="4599" fromTop="38" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/d:Properties/f:AssemblyInfo.cs" caret="1580" fromTop="31" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6771" fromTop="34" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6771" fromTop="32" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6771" fromTop="4" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="440" fromTop="12" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="1335" fromTop="33" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="348" fromTop="11" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="1049" fromTop="25" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="1989" fromTop="33" />
-      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="2179" fromTop="33" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="356" fromTop="12" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="2523" fromTop="23" />
-      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:Token.cs" caret="3937" fromTop="37" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="2032" fromTop="37" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="1202" fromTop="29" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="1869" fromTop="32" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServerWithAuthorizationCode.cs" caret="667" fromTop="18" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="3423" fromTop="20" />
+      <File id="8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB/f:ServersWithAuthorizationCode.cs" caret="3851" fromTop="27" />
+      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="866" fromTop="18" />
+      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="551" fromTop="9" />
+      <File id="372458DD-72BE-4A01-ACA6-BF94B406E077/f:WorkflowForAuthorizationCode.cs" caret="1274" fromTop="23" />
+      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="847" fromTop="22" />
+      <File id="6E3DB716-D98F-4B41-AD71-EEB10D8FD666/f:OAuthServerWithAuthorizationCode.cs" caret="5814" fromTop="22" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:AccessTokenTests.cs" caret="884" fromTop="21" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ResourceOwnerTests.cs" caret="3740" fromTop="27" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="1503" fromTop="34" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="1795" fromTop="38" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="801" fromTop="23" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="2322" fromTop="37" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="3676" fromTop="29" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="4446" fromTop="33" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5221" fromTop="25" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="5619" fromTop="32" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="6410" fromTop="28" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:ServerTests.cs" caret="7051" fromTop="22" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="681" fromTop="19" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="2057" fromTop="26" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="3496" fromTop="27" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="4883" fromTop="37" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:TokenTests.cs" caret="6222" fromTop="24" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:WebRequestExtensionsTests.cs" caret="1102" fromTop="21" />
+      <File id="351E8D0D-EADE-44C8-97AB-C3C05DD3F999/f:WebRequestExtensionsTests.cs" caret="5140" fromTop="25" />
     </RecentEdits>
   </RecentFiles>
   <CompletionStatisticsManager>
@@ -75,25 +75,25 @@
       <Item value="throw" priority="255" />
       <Item value="Assert`0" priority="703" />
       <Item value="AuthorizationGrant`0" priority="31" />
-      <Item value="new" priority="2654" />
+      <Item value="new" priority="2718" />
       <Item value="Object`0" priority="63" />
       <Item value="Server`0" priority="220" />
       <Item value="ResourceOwner`0" priority="734" />
-      <Item value="resourceOwner" priority="1347" />
+      <Item value="resourceOwner" priority="1443" />
       <Item value="WebRequest`0" priority="220" />
-      <Item value="var" priority="2814" />
+      <Item value="var" priority="2878" />
       <Item value="internal" priority="956" />
       <Item value="List" priority="127" />
       <Item value="ResourceOwners" priority="152" />
       <Item value="private" priority="565" />
       <Item value="AppDomainSetup`0" priority="31" />
-      <Item value="if" priority="831" />
+      <Item value="if" priority="863" />
       <Item value="_resourceOwners" priority="383" />
       <Item value="ResourceOwners`0" priority="626" />
       <Item value="String`0" priority="671" />
       <Item value="CrossAppDomainDelegate`0" priority="63" />
       <Item value="return" priority="799" />
-      <Item value="string" priority="191" />
+      <Item value="string" priority="255" />
       <Item value="Name" priority="63" />
       <Item value="name" priority="127" />
       <Item value="TestFixtureSetUp" priority="127" />
@@ -111,11 +111,11 @@
       <Item value="abstract" priority="30" />
       <Item value="Uri`0" priority="223" />
       <Item value="ServerWithAuthorizationCode`0" priority="313" />
-      <Item value="clientId" priority="159" />
+      <Item value="clientId" priority="191" />
       <Item value="AuthorizationRequestUri" priority="63" />
       <Item value="authorizationRequestUri" priority="192" />
       <Item value="RedirectionUri" priority="63" />
-      <Item value="redirectionUri" priority="223" />
+      <Item value="redirectionUri" priority="319" />
       <Item value="Guid" priority="275" />
       <Item value="IDisposable`0" priority="95" />
       <Item value="Dispose`0" priority="31" />
@@ -132,8 +132,8 @@
       <Item value="root" priority="127" />
       <Item value="Servers`0" priority="31" />
       <Item value="ServerWithAuthorizationCode" priority="89" />
-      <Item value="Uri" priority="434" />
-      <Item value="serverWithAuth" priority="95" />
+      <Item value="Uri" priority="492" />
+      <Item value="serverWithAuth" priority="159" />
       <Item value="GetBaseException`0" priority="31" />
       <Item value="ClientId" priority="95" />
       <Item value="ServersWithAuthorizationCode`0" priority="570" />
@@ -164,7 +164,7 @@
       <Item value="HttpWebRequest`0" priority="123" />
       <Item value="ResourceOwnerName" priority="31" />
       <Item value="SetUp" priority="31" />
-      <Item value="server" priority="1185" />
+      <Item value="server" priority="1281" />
       <Item value="authorizationuri" priority="31" />
       <Item value="Element`0" priority="26" />
       <Item value="FluentAssertions" priority="61" />
@@ -195,11 +195,11 @@
       <Item value="TestFixture" priority="58" />
       <Item value="Token" priority="115" />
       <Item value="resourceOwner1" priority="319" />
-      <Item value="token" priority="1206" />
+      <Item value="token" priority="1302" />
       <Item value="as" priority="95" />
       <Item value="object" priority="63" />
       <Item value="Test" priority="95" />
-      <Item value="Tokens`0" priority="635" />
+      <Item value="Tokens`0" priority="699" />
       <Item value="TimeSpan" priority="28" />
       <Item value="element1" priority="95" />
       <Item value="TokenToXElement`0" priority="31" />
@@ -297,8 +297,11 @@
       <Item value="lblRefreshToken" priority="31" />
       <Item value="response" priority="31" />
       <Item value="expecedtUri" priority="32" />
-      <Item value="_token" priority="31" />
+      <Item value="_token" priority="63" />
       <Item value="RedirectUri" priority="31" />
+      <Item value="ClientSharedSecret" priority="63" />
+      <Item value="clientSharedSecret" priority="58" />
+      <Item value="_clientSharedSecret" priority="31" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
       <Item value="Fail`0" priority="216" />
@@ -357,7 +360,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.String">
       <Item value="ToArray`1" priority="53" />
-      <Item value="Should`0" priority="486" />
+      <Item value="Should`0" priority="541" />
       <Item value="ToString`0" priority="76" />
       <Item value="Equals`0" priority="26" />
       <Item value="Split`0" priority="80" />
@@ -371,16 +374,17 @@
       <Item value="Of`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NNS.Authentication.OAuth2.ServerWithAuthorizationCode">
-      <Item value="ClientId" priority="245" />
+      <Item value="ClientId" priority="272" />
       <Item value="AuthorizationRequestUri" priority="162" />
       <Item value="RedirectionUri" priority="273" />
       <Item value="Guid" priority="406" />
-      <Item value="Should`0" priority="80" />
+      <Item value="Should`0" priority="107" />
+      <Item value="ClientSharedSecret" priority="55" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Uri">
-      <Item value="ToString`0" priority="377" />
+      <Item value="ToString`0" priority="485" />
       <Item value="Query" priority="26" />
-      <Item value="Should`0" priority="26" />
+      <Item value="Should`0" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NNS.Authentication.OAuth2.ServersWithAuthorizationCode">
       <Item value="GetServerWithAuthorizationCode`0" priority="190" />
@@ -415,13 +419,13 @@
       <Item value="Create`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FluentAssertions.Assertions.ObjectAssertions">
-      <Item value="Be`0" priority="296" />
+      <Item value="Be`0" priority="323" />
       <Item value="NotBe`0" priority="26" />
       <Item value="NotBeNull`0" priority="342" />
       <Item value="BeNull`0" priority="103" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:FluentAssertions.Assertions.StringAssertions">
-      <Item value="Be`0" priority="513" />
+      <Item value="Be`0" priority="567" />
       <Item value="BeNullOrEmpty`0" priority="26" />
       <Item value="NotBeNullOrEmpty`0" priority="26" />
       <Item value="NotBeEmpty`0" priority="26" />
@@ -448,13 +452,14 @@
       <Item value="Server" priority="216" />
       <Item value="ResourceOwner" priority="163" />
       <Item value="Equals`0" priority="107" />
-      <Item value="AuthorizationCode" priority="328" />
-      <Item value="RefreshToken" priority="250" />
+      <Item value="AuthorizationCode" priority="355" />
+      <Item value="RefreshToken" priority="304" />
       <Item value="AccessToken" priority="247" />
       <Item value="Expires" priority="162" />
       <Item value="ToXElement`0" priority="26" />
       <Item value="Should`0" priority="53" />
       <Item value="GetAccessAndRefreshToken`0" priority="26" />
+      <Item value="RedirectUri" priority="81" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:NNS.Authentication.OAuth2.Server">
       <Item value="Guid" priority="134" />
@@ -483,7 +488,7 @@
       <Item value="BeLessOrEqualTo`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NNS.Authentication.OAuth2.Tokens">
-      <Item value="GetToken`0" priority="216" />
+      <Item value="GetToken`0" priority="270" />
       <Item value="AddToken`0" priority="26" />
       <Item value="CleanUpForTests`0" priority="26" />
     </ItemStatistics>
@@ -610,6 +615,7 @@
     <Session>
       <Name>Session #1</Name>
       <Elements>
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.TokenTests" type="NUnitTestFixtureElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
@@ -619,10 +625,13 @@
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.CreateResourceOwner" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="CreateResourceOwner" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.CreateResourceOwnerDouble" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="CreateResourceOwnerDouble" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.CreateServer" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="CreateServer" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode.CreateServerAndUsersAndGetCorrectRedirectToAuthorizationRequest" ParentId="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode" MethodName="CreateServerAndUsersAndGetCorrectRedirectToAuthorizationRequest" Project="372458DD-72BE-4A01-ACA6-BF94B406E077" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.CreateServerDouble" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="CreateServerDouble" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.DisposeAndLoad" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="DisposeAndLoad" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.DisposeAndLoad" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="DisposeAndLoad" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.TokenTests.DisposeAndLoad" ParentId="NNS.Authentication.OAuth2.UnitTests.TokenTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.TokenTests" MethodName="DisposeAndLoad" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
-        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.DisposeAndLoad" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="DisposeAndLoad" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests.GetAccessAndRefreshTokenTest" ParentId="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests" MethodName="GetAccessAndRefreshTokenTest" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode.GetAuthorizationCodeViaUserAgentAndRequestProtectedResource" ParentId="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.AcceptanceTests.WorkflowForAuthorizationCode" MethodName="GetAuthorizationCodeViaUserAgentAndRequestProtectedResource" Project="372458DD-72BE-4A01-ACA6-BF94B406E077" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests.GetCredentialsFromAuthorizationRedirectTest" ParentId="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" MethodName="GetCredentialsFromAuthorizationRedirectTest" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests.GetCredentialsFromAuthorizationRedirectTestInvalidCode" ParentId="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" MethodName="GetCredentialsFromAuthorizationRedirectTestInvalidCode" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests.GetCredentialsFromAuthorizationRedirectTestInvalidState1" ParentId="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" MethodName="GetCredentialsFromAuthorizationRedirectTestInvalidState1" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
@@ -631,6 +640,7 @@
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.GetResourceOwner" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="GetResourceOwner" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ServerTests.GetServer" ParentId="NNS.Authentication.OAuth2.UnitTests.ServerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ServerTests" MethodName="GetServer" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.TokenTests.GetToken" ParentId="NNS.Authentication.OAuth2.UnitTests.TokenTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.TokenTests" MethodName="GetToken" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
+        <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests.GetWebRequestForAccessTokenRequestTest" ParentId="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.AccessTokenTests" MethodName="GetWebRequestForAccessTokenRequestTest" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests.RedirectToAuthorizationTest" ParentId="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.WebRequestExtensionsTests" MethodName="RedirectToAuthorizationTest" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.ResourceOwnerFromXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="ResourceOwnerFromXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />
         <UnitTestElement Provider="nUnit" Id="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests.ResourceOwnerToXElement" ParentId="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" type="NUnitTestElement" TypeName="NNS.Authentication.OAuth2.UnitTests.ResourceOwnerTests" MethodName="ResourceOwnerToXElement" Project="351E8D0D-EADE-44C8-97AB-C3C05DD3F999" />

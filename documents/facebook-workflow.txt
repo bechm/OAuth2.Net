@@ -5,6 +5,7 @@ C <- https://tu-chemnitz.de/?code=AQBOQp6EpIGwVfR-qfgf5tO-1uUhsKvno_LUd5H2PY71Js
 
 268852326492238
 b2879554cb0fd70b6a5f6df838f82684
+read_stream, publish_stream
 https://tu-chemnitz.de/
 https://www.facebook.com/dialog/oauth
 
