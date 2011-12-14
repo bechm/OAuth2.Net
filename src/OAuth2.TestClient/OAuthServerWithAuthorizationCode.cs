@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Net;
 using System.ServiceModel.Web;
 using System.Windows.Forms;
@@ -22,10 +24,14 @@ namespace NNS.Authentication.OAuth2.TestClient
 
         private void CmdServerCreateClick(object sender, EventArgs e)
         {
+            var scopes = txtScope.Text.Split(',');
+            var scopeList = scopes.Select(scope => scope.Trim()).ToList();
+
             _server = ServersWithAuthorizationCode.Add(txtServerClientId.Text,
                                                        txtClientSharedSecret.Text,
                                                        new Uri(txtServerAuthorizationUri.Text),
-                                                       new Uri(txtServerRedirectionUri.Text));
+                                                       new Uri(txtServerRedirectionUri.Text),
+                                                       scopeList);
             lblServerGUID.Text = _server.Guid.ToString();
         }
 
@@ -63,9 +69,9 @@ namespace NNS.Authentication.OAuth2.TestClient
             incommingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
 
             var tuple = incommingRequest.GetCredentialsFromAuthorizationRedirect();
-            var token = Tokens.GetToken(tuple.Item1, tuple.Item2);
+            _token = Tokens.GetToken(tuple.Item1, tuple.Item2);
 
-            lblAuthorizationCode.Text = token.AuthorizationCode;
+            lblAuthorizationCode.Text = _token.AuthorizationCode;
 
         }
     }

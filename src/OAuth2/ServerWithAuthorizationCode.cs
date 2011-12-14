@@ -13,12 +13,27 @@ namespace NNS.Authentication.OAuth2
         public String ClientSharedSecret { get; private set; }
         public Uri RedirectionUri { get; set; }
 
+        internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri, List<String> scopes)
+        {
+            ClientId = clientId;
+            ClientSharedSecret = clientSharedSecret;
+            AuthorizationRequestUri = authorizationRequestUri;
+            RedirectionUri = redirectionUri;
+            
+            Scopes = scopes;
+            if(scopes == null)
+                Scopes = new List<string>();
+            
+            Guid = Guid.NewGuid();
+        }
+
         internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri)
         {
             ClientId = clientId;
             ClientSharedSecret = clientSharedSecret;
             AuthorizationRequestUri = authorizationRequestUri;
             RedirectionUri = redirectionUri;
+            Scopes = new List<string>();
             Guid = Guid.NewGuid();
         }
 
@@ -29,6 +44,12 @@ namespace NNS.Authentication.OAuth2
             element.Add(new XElement("Guid",Guid.ToString()));
             element.Add(new XElement("ClientId",ClientId));
             element.Add(new XElement("ClientSharedSecret",ClientSharedSecret));
+
+            var scopes = new XElement("Scopes");
+            foreach(var scope in Scopes)
+                scopes.Add(new XElement("Scope", scope));
+            element.Add(scopes);
+
             element.Add(new XElement("AuthorizationUri",AuthorizationRequestUri.ToString()));
             element.Add(new XElement("RedirectionUri", RedirectionUri.ToString()));
             return element;
@@ -45,6 +66,14 @@ namespace NNS.Authentication.OAuth2
                 new Uri(element.Element("RedirectionUri").Value));
             if(element.Element("Guid") != null)
                 server.Guid = new Guid(element.Element("Guid").Value);
+
+            var scopesElement = element.Element("Scopes");
+            if(scopesElement != null)
+            {
+                foreach(var scopeElement in scopesElement.Elements("Scope"))
+                    server.Scopes.Add(scopeElement.Value);
+            }
+
             return server;
 
         }

@@ -95,15 +95,14 @@ namespace NNS.Authentication.OAuth2
             return root;
         }
 
-
-        public static ServerWithAuthorizationCode Add(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri)
+        public static ServerWithAuthorizationCode Add(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri, List<String> scope = null)
         {
             GetInstanceOfServers();
 
-            if (ServerWithAuthorizationCodeExists(clientId, authorizationRequestUri, redirectionUri) == true)
+            if(ServerWithAuthorizationCodeExists(clientId, authorizationRequestUri, redirectionUri) == true)
                 throw new ServerWithAuthorizationCodeAlredyExistsException(clientId, authorizationRequestUri, redirectionUri);
 
-            var server = new ServerWithAuthorizationCode(clientId, clientSharedSecret, authorizationRequestUri, redirectionUri);
+            var server = new ServerWithAuthorizationCode(clientId, clientSharedSecret, authorizationRequestUri, redirectionUri, scope);
             _servers.Add(server);
             return server;
         }

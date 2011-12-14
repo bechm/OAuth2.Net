@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbServer = new System.Windows.Forms.GroupBox();
+            this.txtScope = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtClientSharedSecret = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblServerGUID = new System.Windows.Forms.Label();
             this.cmdServerCreate = new System.Windows.Forms.Button();
             this.txtServerAuthorizationUri = new System.Windows.Forms.TextBox();
@@ -56,8 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.cmdGetToken = new System.Windows.Forms.Button();
-            this.txtClientSharedSecret = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbServer.SuspendLayout();
             this.gbResourceOwner.SuspendLayout();
             this.gbWorkflow.SuspendLayout();
@@ -66,8 +70,10 @@
             // 
             // gbServer
             // 
-            this.gbServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbServer.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.gbServer.Controls.Add(this.txtScope);
+            this.gbServer.Controls.Add(this.label8);
             this.gbServer.Controls.Add(this.txtClientSharedSecret);
             this.gbServer.Controls.Add(this.label6);
             this.gbServer.Controls.Add(this.lblServerGUID);
@@ -80,15 +86,51 @@
             this.gbServer.Controls.Add(this.label1);
             this.gbServer.Location = new System.Drawing.Point(3, 3);
             this.gbServer.Name = "gbServer";
-            this.gbServer.Size = new System.Drawing.Size(635, 162);
+            this.gbServer.Size = new System.Drawing.Size(635, 175);
             this.gbServer.TabIndex = 0;
             this.gbServer.TabStop = false;
             this.gbServer.Text = "Server";
             // 
+            // txtScope
+            // 
+            this.txtScope.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.txtScope.Location = new System.Drawing.Point(128, 69);
+            this.txtScope.Name = "txtScope";
+            this.txtScope.Size = new System.Drawing.Size(501, 20);
+            this.txtScope.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "scopes";
+            // 
+            // txtClientSharedSecret
+            // 
+            this.txtClientSharedSecret.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.txtClientSharedSecret.Location = new System.Drawing.Point(128, 43);
+            this.txtClientSharedSecret.Name = "txtClientSharedSecret";
+            this.txtClientSharedSecret.Size = new System.Drawing.Size(501, 20);
+            this.txtClientSharedSecret.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "ClientSharedSecret";
+            // 
             // lblServerGUID
             // 
             this.lblServerGUID.AutoSize = true;
-            this.lblServerGUID.Location = new System.Drawing.Point(125, 133);
+            this.lblServerGUID.Location = new System.Drawing.Point(125, 144);
             this.lblServerGUID.Name = "lblServerGUID";
             this.lblServerGUID.Size = new System.Drawing.Size(25, 13);
             this.lblServerGUID.TabIndex = 7;
@@ -96,8 +138,8 @@
             // 
             // cmdServerCreate
             // 
-            this.cmdServerCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdServerCreate.Location = new System.Drawing.Point(554, 133);
+            this.cmdServerCreate.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.cmdServerCreate.Location = new System.Drawing.Point(554, 144);
             this.cmdServerCreate.Name = "cmdServerCreate";
             this.cmdServerCreate.Size = new System.Drawing.Size(75, 23);
             this.cmdServerCreate.TabIndex = 6;
@@ -107,9 +149,9 @@
             // 
             // txtServerAuthorizationUri
             // 
-            this.txtServerAuthorizationUri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServerAuthorizationUri.Location = new System.Drawing.Point(128, 102);
+            this.txtServerAuthorizationUri.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.txtServerAuthorizationUri.Location = new System.Drawing.Point(128, 121);
             this.txtServerAuthorizationUri.Name = "txtServerAuthorizationUri";
             this.txtServerAuthorizationUri.Size = new System.Drawing.Size(501, 20);
             this.txtServerAuthorizationUri.TabIndex = 5;
@@ -117,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 105);
+            this.label3.Location = new System.Drawing.Point(7, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 13);
             this.label3.TabIndex = 4;
@@ -125,9 +167,9 @@
             // 
             // txtServerRedirectionUri
             // 
-            this.txtServerRedirectionUri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtServerRedirectionUri.Location = new System.Drawing.Point(128, 76);
+            this.txtServerRedirectionUri.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
+            this.txtServerRedirectionUri.Location = new System.Drawing.Point(128, 95);
             this.txtServerRedirectionUri.Name = "txtServerRedirectionUri";
             this.txtServerRedirectionUri.Size = new System.Drawing.Size(501, 20);
             this.txtServerRedirectionUri.TabIndex = 3;
@@ -135,7 +177,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 79);
+            this.label2.Location = new System.Drawing.Point(7, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 2;
@@ -143,8 +185,8 @@
             // 
             // txtServerClientId
             // 
-            this.txtServerClientId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtServerClientId.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.txtServerClientId.Location = new System.Drawing.Point(128, 17);
             this.txtServerClientId.Name = "txtServerClientId";
             this.txtServerClientId.Size = new System.Drawing.Size(501, 20);
@@ -161,13 +203,13 @@
             // 
             // gbResourceOwner
             // 
-            this.gbResourceOwner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbResourceOwner.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.gbResourceOwner.Controls.Add(this.lblResourceOwnerGUID);
             this.gbResourceOwner.Controls.Add(this.cmdResourceOwnerCreate);
             this.gbResourceOwner.Controls.Add(this.txtResourceOwnerName);
             this.gbResourceOwner.Controls.Add(this.label4);
-            this.gbResourceOwner.Location = new System.Drawing.Point(4, 171);
+            this.gbResourceOwner.Location = new System.Drawing.Point(3, 184);
             this.gbResourceOwner.Name = "gbResourceOwner";
             this.gbResourceOwner.Size = new System.Drawing.Size(634, 70);
             this.gbResourceOwner.TabIndex = 1;
@@ -185,7 +227,7 @@
             // 
             // cmdResourceOwnerCreate
             // 
-            this.cmdResourceOwnerCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdResourceOwnerCreate.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.cmdResourceOwnerCreate.Location = new System.Drawing.Point(553, 39);
             this.cmdResourceOwnerCreate.Name = "cmdResourceOwnerCreate";
             this.cmdResourceOwnerCreate.Size = new System.Drawing.Size(75, 23);
@@ -196,8 +238,8 @@
             // 
             // txtResourceOwnerName
             // 
-            this.txtResourceOwnerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtResourceOwnerName.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.txtResourceOwnerName.Location = new System.Drawing.Point(127, 13);
             this.txtResourceOwnerName.Name = "txtResourceOwnerName";
             this.txtResourceOwnerName.Size = new System.Drawing.Size(501, 20);
@@ -214,16 +256,16 @@
             // 
             // gbWorkflow
             // 
-            this.gbWorkflow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbWorkflow.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
+                        | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.gbWorkflow.Controls.Add(this.cmdGetAuthorizationCode);
             this.gbWorkflow.Controls.Add(this.webBrowser1);
             this.gbWorkflow.Controls.Add(this.lblAuthorizationCode);
             this.gbWorkflow.Controls.Add(this.cmdAuthorizationCodeRedirect);
-            this.gbWorkflow.Location = new System.Drawing.Point(4, 247);
+            this.gbWorkflow.Location = new System.Drawing.Point(4, 260);
             this.gbWorkflow.Name = "gbWorkflow";
-            this.gbWorkflow.Size = new System.Drawing.Size(634, 266);
+            this.gbWorkflow.Size = new System.Drawing.Size(634, 253);
             this.gbWorkflow.TabIndex = 2;
             this.gbWorkflow.TabStop = false;
             this.gbWorkflow.Text = "Workflow";
@@ -240,13 +282,13 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
+                        | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.webBrowser1.Location = new System.Drawing.Point(9, 62);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(619, 198);
+            this.webBrowser1.Size = new System.Drawing.Size(619, 185);
             this.webBrowser1.TabIndex = 2;
             // 
             // lblAuthorizationCode
@@ -270,8 +312,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left )
+                        | System.Windows.Forms.AnchorStyles.Right ) ) );
             this.groupBox1.Controls.Add(this.lblExpires);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.lblRefreshToken);
@@ -359,23 +401,9 @@
             this.cmdGetToken.Text = "Get Token";
             this.cmdGetToken.UseVisualStyleBackColor = true;
             // 
-            // txtClientSharedSecret
+            // toolTip1
             // 
-            this.txtClientSharedSecret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientSharedSecret.Location = new System.Drawing.Point(128, 43);
-            this.txtClientSharedSecret.Name = "txtClientSharedSecret";
-            this.txtClientSharedSecret.Size = new System.Drawing.Size(501, 20);
-            this.txtClientSharedSecret.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "ClientSharedSecret";
+            this.toolTip1.ToolTipTitle = "seperate Scopes by commas, e.g. \"read, write, delete\"";
             // 
             // OAuthServerWithAuthorizationCode
             // 
@@ -431,5 +459,8 @@
         private System.Windows.Forms.Label lblResourceOwnerGUID;
         private System.Windows.Forms.TextBox txtClientSharedSecret;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtScope;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

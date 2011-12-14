@@ -17,15 +17,16 @@ namespace NNS.Authentication.OAuth2.UnitTests
             ServersWithAuthorizationCode.CleanUpForTests();
 
             var serverWithAuth = ServersWithAuthorizationCode.Add("myfunnyid", "myfunnysecret", new Uri("http://example.com/AuthorizationRequest"), new Uri("http://example.com/RedirectionUri"));
-            Assert.IsNotNull(serverWithAuth);
+            serverWithAuth.Should().NotBeNull();
 
             serverWithAuth.ClientId.Should().Be("myfunnyid");
             serverWithAuth.ClientSharedSecret.Should().Be("myfunnysecret");
 
-            Assert.AreEqual("http://example.com/AuthorizationRequest", serverWithAuth.AuthorizationRequestUri.ToString());
-            Assert.AreEqual("http://example.com/RedirectionUri", serverWithAuth.RedirectionUri.ToString());
-            Assert.IsNotNull(serverWithAuth.Guid);
-            Assert.AreNotEqual(new Guid().ToString(), serverWithAuth.Guid.ToString());
+            serverWithAuth.AuthorizationRequestUri.ToString().Should().Be("http://example.com/AuthorizationRequest");
+            serverWithAuth.RedirectionUri.ToString().Should().Be("http://example.com/RedirectionUri");
+            serverWithAuth.Guid.Should().NotBeEmpty();
+            serverWithAuth.Guid.ToString().Should().NotBe(new Guid().ToString());
+            serverWithAuth.Scopes.Should().NotBeNull();
         }
 
         [Test]
@@ -69,7 +70,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var authorizationuri = new Uri("http://example.com/auth");
             var redirectionUri = new Uri("http://example.com/redirect");
-            var server = new ServerWithAuthorizationCode("clientid123", "myfunnysecret", authorizationuri, redirectionUri);
+            var server = new ServerWithAuthorizationCode("clientid123", "myfunnysecret", authorizationuri, redirectionUri, new List<String>(){"funnyscope"});
             var element = server.ToXElement();
 
             element.Should().NotBeNull();
@@ -87,6 +88,11 @@ namespace NNS.Authentication.OAuth2.UnitTests
             element.Element("ClientSharedSecret").Should().NotBeNull();
             element.Element("ClientSharedSecret").Value.Should().Be("myfunnysecret");
 
+            var scopes = element.Element("Scopes");
+            scopes.Should().NotBeNull();
+            scopes.Element("Scope").Value.Should().NotBeNull();
+            scopes.Element("Scope").Value.Should().Be("funnyscope");
+
             element.Element("AuthorizationUri").Should().NotBeNull();
             element.Element("AuthorizationUri").Value.Should().Be(authorizationuri.ToString());
 
@@ -102,6 +108,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             element.Add(new XElement("Guid", "f1287c12-1cf3-45b3-ac29-5bfce34b2145"));
             element.Add(new XElement("ClientId", "myspecialClientId"));
             element.Add(new XElement("ClientSharedSecret", "acsecret123"));
+            element.Add(new XElement("Scopes", new XElement("Scope", "foobar")));
             element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
             element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
 
@@ -112,6 +119,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             server.Guid.ToString().Should().Be("f1287c12-1cf3-45b3-ac29-5bfce34b2145");
             server.AuthorizationRequestUri.ToString().Should().Be("http://example.com/anotherfunnyUri");
             server.RedirectionUri.ToString().Should().Be("http://example.com/behappy");
+            server.Scopes.FirstOrDefault(item => item == "foobar").Should().NotBeNull();
         }
 
         [Test]
@@ -123,6 +131,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             element.Add(new XElement("Guid", "f1287c12-1cf3-45b3-ac29-5bfce34b2145"));
             element.Add(new XElement("ClientId", "myspecialClientId"));
             element.Add(new XElement("ClientSharedSecret", "acsecret123"));
+            element.Add(new XElement("Scopes", new XElement("Scope", "foobar")));
             element.Add(new XElement("AuthorizationUri", "http://example.com/anotherfunnyUri"));
             element.Add(new XElement("RedirectionUri", "http://example.com/behappy"));
 
@@ -134,7 +143,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         public void DisposeAndLoad()
         {
             ServersWithAuthorizationCode.CleanUpForTests();
-            var server1 = ServersWithAuthorizationCode.Add("server1", "afunnysecret", new Uri("http://example.org/uri1"), new Uri("http://example.org/uri2"));
+            var server1 = ServersWithAuthorizationCode.Add("server1", "afunnysecret", new Uri("http://example.org/uri1"), new Uri("http://example.org/uri2"), new List<String>(){ "scopedmaskl", "scope2"});
             ServersWithAuthorizationCode.Add("server2", "afunnysecret",  new Uri("http://example.org/uri3"), new Uri("http://example.org/uri5"));
 
             ServersWithAuthorizationCode.SaveToIsoStore();
@@ -145,6 +154,8 @@ namespace NNS.Authentication.OAuth2.UnitTests
             server.ClientId.Should().Be("server1");
             server.AuthorizationRequestUri.ToString().Should().Be("http://example.org/uri1");
             server.RedirectionUri.ToString().Should().Be("http://example.org/uri2");
+            server.Scopes.FirstOrDefault(item => item == "scopedmaskl").Should().NotBeNull();
+            server.Scopes.FirstOrDefault(item => item == "scope2").Should().NotBeNull();
 
             var serverNull = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(Guid.NewGuid());
             serverNull.Should().BeNull();

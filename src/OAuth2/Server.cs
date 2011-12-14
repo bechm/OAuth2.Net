@@ -9,7 +9,7 @@ namespace NNS.Authentication.OAuth2
     {
         public Guid Guid;
         public Uri AuthorizationRequestUri;
-        public String Scope;
+        public List<String> Scopes;
 
     }
 }
