@@ -13,6 +13,7 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
     public class WorkflowForAuthorizationCode
     {
         private Uri _authorizationRequestUri;
+        private Uri _accessTokenRequestUri;
         private Uri _redirectionUri;
         private string _resourceOwnerName ;
         private string _clientId;
@@ -28,9 +29,10 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             _clientId = "268852326492238";
             _clientSharedSecret = "124564561125648";
             _authorizationRequestUri = new Uri("http://example.com/AuthorizationRequest");
+            _accessTokenRequestUri = new Uri("http://example.com/access");
             _redirectionUri = new Uri("http://example.com/RedirectionUri");
-            if (!ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(_clientId, _authorizationRequestUri, _redirectionUri))
-                ServersWithAuthorizationCode.Add(_clientId, _clientSharedSecret, _authorizationRequestUri, _redirectionUri);
+            if (!ServersWithAuthorizationCode.ServerWithAuthorizationCodeExists(_clientId, _authorizationRequestUri,_accessTokenRequestUri, _redirectionUri))
+                ServersWithAuthorizationCode.Add(_clientId, _clientSharedSecret, _authorizationRequestUri,_accessTokenRequestUri, _redirectionUri);
         }
 
         [Test]
@@ -40,6 +42,7 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
 
             var resourceOwner = ResourceOwners.GetResourceOwner(_resourceOwnerName);
             var server = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri,
+                                                                                     _accessTokenRequestUri,
                                                                                      _redirectionUri);
 
             var mockContext = new Mock<IOutgoingWebResponseContext> {DefaultValue = DefaultValue.Mock};
@@ -64,7 +67,7 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             // dabei müssen die UserCredentials richtig gesetzt sein
 
             var resourceOwnertmp = ResourceOwners.GetResourceOwner(_resourceOwnerName);
-            var servertmp = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri, _redirectionUri);
+            var servertmp = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri,_accessTokenRequestUri, _redirectionUri);
 
             var mockContext = new Mock<IIncomingWebRequestContext> { DefaultValue = DefaultValue.Mock };
             mockContext.SetupAllProperties();

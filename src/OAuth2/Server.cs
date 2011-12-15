@@ -10,6 +10,8 @@ namespace NNS.Authentication.OAuth2
         public Guid Guid;
         public Uri AuthorizationRequestUri;
         public List<String> Scopes;
-
+        public String ClientId { get; internal set; }
+        public String ClientSharedSecret { get; internal set; }
+        public Uri AccessTokenRequestUri { get; internal set; }
     }
 }

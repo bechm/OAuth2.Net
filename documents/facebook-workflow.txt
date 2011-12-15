@@ -8,5 +8,6 @@ b2879554cb0fd70b6a5f6df838f82684
 read_stream, publish_stream
 https://tu-chemnitz.de/
 https://www.facebook.com/dialog/oauth
+https://graph.facebook.com/oauth/access_token
 
 Krik

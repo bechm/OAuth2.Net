@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Authentication;
 using System.ServiceModel.Web;
+using System.Text;
 using System.Web;
 using NNS.Authentication.OAuth2.Exceptions;
 
@@ -76,6 +77,13 @@ namespace NNS.Authentication.OAuth2.Extensions
             token.AuthorizationCode = code;
 
             return new Tuple<ServerWithAuthorizationCode, ResourceOwner>(server,resourceOwner);
+        }
+
+        internal static void SetBasicAuthenticationFor(this HttpWebRequest webRequest, Server server)
+        {
+            var authInfo = server.ClientId + ":" + server.ClientSharedSecret;
+            authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+            webRequest.Headers["Authorization"] = "Basic " + authInfo;
         }
 
         public static void SignRequest(this HttpWebRequest webRequest, Server server, ResourceOwner resourceOwner)

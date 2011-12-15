@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 using NNS.Authentication.OAuth2.Exceptions;
 
@@ -95,14 +94,14 @@ namespace NNS.Authentication.OAuth2
             return root;
         }
 
-        public static ServerWithAuthorizationCode Add(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri, List<String> scope = null)
+        public static ServerWithAuthorizationCode Add(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri accessTokenRequestUri, Uri redirectionUri, List<String> scope = null)
         {
             GetInstanceOfServers();
 
-            if(ServerWithAuthorizationCodeExists(clientId, authorizationRequestUri, redirectionUri) == true)
-                throw new ServerWithAuthorizationCodeAlredyExistsException(clientId, authorizationRequestUri, redirectionUri);
+            if(ServerWithAuthorizationCodeExists(clientId, authorizationRequestUri, accessTokenRequestUri, redirectionUri) == true)
+                throw new ServerWithAuthorizationCodeAlredyExistsException(clientId, authorizationRequestUri, accessTokenRequestUri, redirectionUri);
 
-            var server = new ServerWithAuthorizationCode(clientId, clientSharedSecret, authorizationRequestUri, redirectionUri, scope);
+            var server = new ServerWithAuthorizationCode(clientId, clientSharedSecret, authorizationRequestUri,accessTokenRequestUri, redirectionUri, scope);
             _servers.Add(server);
             return server;
         }
@@ -113,11 +112,12 @@ namespace NNS.Authentication.OAuth2
             return _servers.FirstOrDefault(item => item.Guid == guid);
         }
 
-        public static ServerWithAuthorizationCode GetServerWithAuthorizationCode(string clientId, Uri authorizationRequestUri, Uri redirectionUri)
+        public static ServerWithAuthorizationCode GetServerWithAuthorizationCode(string clientId, Uri authorizationRequestUri, Uri accessTokenRequestUri, Uri redirectionUri)
         {
             GetInstanceOfServers();
             return _servers.FirstOrDefault(item => item.ClientId == clientId &&
                                                    item.AuthorizationRequestUri == authorizationRequestUri &&
+                                                   item.AccessTokenRequestUri == accessTokenRequestUri &&
                                                    item.RedirectionUri == redirectionUri);
         }
 
@@ -127,11 +127,12 @@ namespace NNS.Authentication.OAuth2
             return (_servers.FirstOrDefault(item => item.Guid == guid) != null);
         }
 
-        public static Boolean ServerWithAuthorizationCodeExists(string clientId, Uri authorizationRequestUri, Uri redirectionUri)
+        public static Boolean ServerWithAuthorizationCodeExists(string clientId, Uri authorizationRequestUri, Uri accessTokenRequestUri, Uri redirectionUri)
         {
             GetInstanceOfServers();
             return (_servers.FirstOrDefault(item => item.ClientId == clientId &&
                                                     item.AuthorizationRequestUri == authorizationRequestUri &&
+                                                    item.AccessTokenRequestUri == accessTokenRequestUri &&
                                                     item.RedirectionUri == redirectionUri) != null);
         }
 

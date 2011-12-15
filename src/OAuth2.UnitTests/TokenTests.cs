@@ -16,9 +16,11 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var server1 = new ServerWithAuthorizationCode("test", "testsecret",
                                                           new Uri("http://example.org/foo"),
+                                                          new Uri("http://example.org/access"),
                                                           new Uri("http://example.org/test2"));
             var server2 = new ServerWithAuthorizationCode("test2", "testsecret",
                                                           new Uri("http://example.org/fo32o"),
+                                                          new Uri("http://example.org/access"),
                                                           new Uri("http://example.org/tesdst2"));
             var resourceOwner1 = new ResourceOwner("testmann1");
             var resourceOwner2 = new ResourceOwner("testmann2");
@@ -50,6 +52,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var server1 = new ServerWithAuthorizationCode("test", "testsecret",
                                                           new Uri("http://example.org/foo"),
+                                                          new Uri("http://example.org/access"),
                                                           new Uri("http://example.org/test2"));
             var resourceOwner1 = new ResourceOwner("testmann1");
             Tokens.CleanUpForTests();
@@ -81,6 +84,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
         {
             var server1 = new ServerWithAuthorizationCode("test", "testsecret",
                                                           new Uri("http://example.org/foo"),
+                                                          new Uri("http://example.org/access"),
                                                           new Uri("http://example.org/test2"));
             var resourceOwner1 = new ResourceOwner("testmann1");
 
@@ -107,7 +111,9 @@ namespace NNS.Authentication.OAuth2.UnitTests
         public void TokenFromXElement()
         {
             var element = new XElement("Token");
-            var server = ServersWithAuthorizationCode.Add("testclient1", "testsecret", new Uri("http://example.com/uri1"),
+            var server = ServersWithAuthorizationCode.Add("testclient1", "testsecret",
+                                                          new Uri("http://example.com/uri1"),
+                                                          new Uri("http://example.org/access"),
                                                           new Uri("http://example.com/uri2"));
             var resourceOwner = ResourceOwners.Add("testuser1");
 
@@ -133,8 +139,10 @@ namespace NNS.Authentication.OAuth2.UnitTests
         public void DisposeAndLoad()
         {
             Tokens.CleanUpForTests();
-            var server1 = ServersWithAuthorizationCode.Add("testclient", "testsecret", new Uri("http://example.com/uri1"),
-                                                          new Uri("http://example.com/uri2"));
+            var server1 = ServersWithAuthorizationCode.Add("testclient", "testsecret",
+                                                           new Uri("http://example.com/uri1"),
+                                                           new Uri("http://example.org/access"),
+                                                           new Uri("http://example.com/uri2"));
             var resourceOwner1 = ResourceOwners.Add("testuser");
 
             Token token = Tokens.GetToken(server1, resourceOwner1);

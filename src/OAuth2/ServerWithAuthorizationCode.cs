@@ -9,15 +9,14 @@ namespace NNS.Authentication.OAuth2
 {
     public class ServerWithAuthorizationCode : Server
     {
-        public String ClientId { get; private set; }
-        public String ClientSharedSecret { get; private set; }
         public Uri RedirectionUri { get; set; }
 
-        internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri, List<String> scopes)
+        internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri accessTokenRequestUri, Uri redirectionUri, List<String> scopes)
         {
             ClientId = clientId;
             ClientSharedSecret = clientSharedSecret;
             AuthorizationRequestUri = authorizationRequestUri;
+            AccessTokenRequestUri = accessTokenRequestUri;
             RedirectionUri = redirectionUri;
             
             Scopes = scopes;
@@ -27,11 +26,12 @@ namespace NNS.Authentication.OAuth2
             Guid = Guid.NewGuid();
         }
 
-        internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri redirectionUri)
+        internal ServerWithAuthorizationCode(string clientId, string clientSharedSecret, Uri authorizationRequestUri, Uri accessTokenRequestUri, Uri redirectionUri)
         {
             ClientId = clientId;
             ClientSharedSecret = clientSharedSecret;
             AuthorizationRequestUri = authorizationRequestUri;
+            AccessTokenRequestUri = accessTokenRequestUri;
             RedirectionUri = redirectionUri;
             Scopes = new List<string>();
             Guid = Guid.NewGuid();
@@ -51,6 +51,7 @@ namespace NNS.Authentication.OAuth2
             element.Add(scopes);
 
             element.Add(new XElement("AuthorizationUri",AuthorizationRequestUri.ToString()));
+            element.Add(new XElement("AccessTokenUri", AccessTokenRequestUri.ToString()));
             element.Add(new XElement("RedirectionUri", RedirectionUri.ToString()));
             return element;
         }
@@ -63,6 +64,7 @@ namespace NNS.Authentication.OAuth2
                 element.Element("ClientId").Value,
                 element.Element("ClientSharedSecret").Value,
                 new Uri(element.Element("AuthorizationUri").Value),
+                new Uri(element.Element("AccessTokenUri").Value),
                 new Uri(element.Element("RedirectionUri").Value));
             if(element.Element("Guid") != null)
                 server.Guid = new Guid(element.Element("Guid").Value);

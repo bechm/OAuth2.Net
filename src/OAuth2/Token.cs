@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Web;
 using System.Xml.Linq;
 using NNS.Authentication.OAuth2.Exceptions;
+using NNS.Authentication.OAuth2.Extensions;
+using Newtonsoft.Json;
 
 namespace NNS.Authentication.OAuth2
 {
@@ -107,14 +112,57 @@ namespace NNS.Authentication.OAuth2
 
         internal HttpWebRequest GetWebRequestForAccessTokenRequest()
         {
-            var webRequest = (HttpWebRequest) WebRequest.Create(this.Server.AuthorizationRequestUri);
+            var requestUri = Server.AccessTokenRequestUri;
+            
+            var webRequest = (HttpWebRequest) WebRequest.Create(requestUri);
+            webRequest.Method = "POST";
+            webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+            webRequest.SetBasicAuthenticationFor(Server);
+
+            var text = "grant_type=authorization_code" +
+                       "&code=" + AuthorizationCode +
+                       "&redirect=" + HttpUtility.UrlEncode(RedirectUri.ToString()).Replace(".", "%2e");
+            var enc = new System.Text.UTF8Encoding();
+            var buffer = enc.GetBytes(text);
+            var requestStream = webRequest.GetRequestStream();
+            requestStream.Write(buffer, 0, buffer.Length);
 
             return webRequest;
         }
 
         private void SetAccessToken(HttpWebResponse response)
         {
-            throw new NotImplementedException();
+            var responseStream = response.GetResponseStream();
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new InvalidStatusCodeException(response.StatusCode, response);
+            
+            var reader = new StreamReader(responseStream);
+            var responseText = reader.ReadToEnd();
+
+
+            if (responseText == "")
+                throw new AccessTokenRequestFailedException("empty responseStream", response);
+
+            Dictionary<string,string> values;
+            try
+            {
+                values = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
+            }
+            catch (JsonReaderException ex)
+            {
+                throw new AccessTokenRequestFailedException("no JSON in Response", response, ex);
+            }
+
+            if(!values.ContainsKey("access_token"))
+                throw new AccessTokenRequestFailedException("access_token is missing in responseStream", response);
+            if (!values.ContainsKey("expires_in"))
+                throw new AccessTokenRequestFailedException("expires_in is missing in responseStream", response);
+            
+            AccessToken = values["access_token"];
+            Expires = DateTime.Now.AddSeconds(int.Parse(values["expires_in"]));
+
+            if (values.ContainsKey("refresh_token"))
+                RefreshToken = values["refresh_token"];
         }
     }
 }

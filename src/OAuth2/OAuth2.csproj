@@ -33,6 +33,9 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\external\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -45,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\AccessTokenRequestFailedException.cs" />
     <Compile Include="Exceptions\InvalidAuthorizationRequestException.cs" />
     <Compile Include="Exceptions\InvalidTypeException.cs" />
     <Compile Include="Exceptions\UserAlredyExistsException.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
+    <Compile Include="Exceptions\InvalidStatusCodeException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Exceptions\RequiredElementMissingException.cs" />
     <Compile Include="ResourceOwner.cs" />
