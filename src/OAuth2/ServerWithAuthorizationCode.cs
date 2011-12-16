@@ -18,7 +18,8 @@ namespace NNS.Authentication.OAuth2
             AuthorizationRequestUri = authorizationRequestUri;
             AccessTokenRequestUri = accessTokenRequestUri;
             RedirectionUri = redirectionUri;
-            
+            Version = OAuthVersion.v2_22;
+
             Scopes = scopes;
             if(scopes == null)
                 Scopes = new List<string>();
@@ -33,6 +34,8 @@ namespace NNS.Authentication.OAuth2
             AuthorizationRequestUri = authorizationRequestUri;
             AccessTokenRequestUri = accessTokenRequestUri;
             RedirectionUri = redirectionUri;
+            Version = OAuthVersion.v2_22;
+
             Scopes = new List<string>();
             Guid = Guid.NewGuid();
         }

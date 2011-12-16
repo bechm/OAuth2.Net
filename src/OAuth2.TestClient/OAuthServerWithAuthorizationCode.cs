@@ -37,6 +37,7 @@ namespace NNS.Authentication.OAuth2.TestClient
                                                        new Uri(txtServerAccessUri.Text),
                                                        new Uri(txtServerRedirectionUri.Text),
                                                        scopeList);
+            _server.Version = (Server.OAuthVersion)Enum.Parse(typeof(Server.OAuthVersion), cbVersion.Text);
             lblServerGUID.Text = _server.Guid.ToString();
         }
 
@@ -97,17 +98,33 @@ namespace NNS.Authentication.OAuth2.TestClient
             var fileStream = saveFileDialog1.OpenFile();
 
             foreach (
-                var textBox in
+                var control in
                     Controls.Cast<object>().Where(
                         control => control.GetType().ToString() == "System.Windows.Forms.GroupBox").Cast
                         <GroupBox>()
                         .SelectMany(
                             groupBox =>
                             groupBox.Controls.Cast<Object>().Where(
-                                control => control.GetType().ToString() == "System.Windows.Forms.TextBox").Cast<TextBox>
-                                ()))
-                root.Add(new XElement("TextBox", new XElement("Name", textBox.Name), new XElement("Text", textBox.Text)));
-
+                                control =>
+                                    control.GetType().ToString() == "System.Windows.Forms.TextBox" ||
+                                    control.GetType().ToString() == "System.Windows.Forms.ComboBox")))
+            {
+                switch (control.GetType().ToString())
+                {
+                    case "System.Windows.Forms.TextBox":
+                        {
+                            var textBox = (TextBox) control;
+                            root.Add(new XElement("TextBox", new XElement("Name", textBox.Name), new XElement("Text", textBox.Text)));
+                        }
+                        break;
+                    case "System.Windows.Forms.ComboBox":
+                        {
+                            var comboBox = (ComboBox)control;
+                            root.Add(new XElement("TextBox", new XElement("Name", comboBox.Name), new XElement("SelectedItem", comboBox.SelectedItem)));
+                        }
+                        break;
+                }
+            }
             var write = new StreamWriter(fileStream);
             write.Write(root.ToString());
             write.Close();
@@ -122,23 +139,61 @@ namespace NNS.Authentication.OAuth2.TestClient
             var document = XDocument.Load(fileStream);
             var textBoxElements = document.Root.Elements("TextBox");
             foreach (
-                var textBox in
+                var control in
                     Controls.Cast<object>().Where(
-                        control => control.GetType().ToString() == "System.Windows.Forms.GroupBox").Cast
-                        <GroupBox>()
+                        control => control.GetType().ToString() == "System.Windows.Forms.GroupBox").Cast<GroupBox>()
                         .SelectMany(
                             groupBox =>
                             groupBox.Controls.Cast<Object>().Where(
-                                control => control.GetType().ToString() == "System.Windows.Forms.TextBox").Cast<TextBox>
-                                ()))
+                                control =>
+                                control.GetType().ToString() == "System.Windows.Forms.TextBox" ||
+                                control.GetType().ToString() == "System.Windows.Forms.ComboBox")))
             {
-                foreach (var element in textBoxElements)
+
+                switch (control.GetType().ToString())
                 {
-                    if (textBox.Name == element.Element("Name").Value)
-                        textBox.Text = element.Element("Text").Value;
+                    case "System.Windows.Forms.TextBox":
+                        {
+                            var textBox = (TextBox) control;
+                            foreach (var element in textBoxElements)
+                            {
+                                if (textBox.Name == element.Element("Name").Value)
+                                    textBox.Text = element.Element("Text").Value;
+                            }
+                        }
+                        break;
+                    case "System.Windows.Forms.ComboBox":
+                        {
+                            var comboBox = (ComboBox) control;
+                            foreach (var element in textBoxElements)
+                            {
+                                if (comboBox.Name == element.Element("Name").Value)
+                                {
+                                    var n = 0;
+                                    var selectedIndex = 0;
+                                    foreach (var item in comboBox.Items)
+                                    {
+                                        if(item.ToString() == element.Element("SelectedItem").Value.ToString())
+                                            selectedIndex = n;
+                                        n++;
+                                    }
+                                    comboBox.SelectedIndex = selectedIndex;
+                                }
+                            }
+                        }
+                        break;
                 }
+
             }
             fileStream.Close();
+        }
+
+        private void OAuthServerWithAuthorizationCode_Load(object sender, EventArgs e)
+        {
+            cbVersion.Items.Clear();
+            foreach (var versionNumber in Enum.GetValues(typeof (Server.OAuthVersion)))
+                cbVersion.Items.Add(versionNumber);
+            cbVersion.SelectedIndex = 0;
         }
     }
 

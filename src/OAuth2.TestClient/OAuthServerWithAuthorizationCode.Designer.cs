@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbServer = new System.Windows.Forms.GroupBox();
+            this.cmdLoad = new System.Windows.Forms.Button();
+            this.cmdSave = new System.Windows.Forms.Button();
             this.txtServerAccessUri = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtScope = new System.Windows.Forms.TextBox();
@@ -64,10 +66,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cmdGetToken = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmdSave = new System.Windows.Forms.Button();
-            this.cmdLoad = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.cbVersion = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.gbServer.SuspendLayout();
             this.gbResourceOwner.SuspendLayout();
             this.gbWorkflow.SuspendLayout();
@@ -78,6 +80,8 @@
             // 
             this.gbServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbServer.Controls.Add(this.label11);
+            this.gbServer.Controls.Add(this.cbVersion);
             this.gbServer.Controls.Add(this.cmdLoad);
             this.gbServer.Controls.Add(this.cmdSave);
             this.gbServer.Controls.Add(this.txtServerAccessUri);
@@ -96,10 +100,30 @@
             this.gbServer.Controls.Add(this.label1);
             this.gbServer.Location = new System.Drawing.Point(3, 3);
             this.gbServer.Name = "gbServer";
-            this.gbServer.Size = new System.Drawing.Size(635, 197);
+            this.gbServer.Size = new System.Drawing.Size(635, 227);
             this.gbServer.TabIndex = 0;
             this.gbServer.TabStop = false;
             this.gbServer.Text = "Server";
+            // 
+            // cmdLoad
+            // 
+            this.cmdLoad.Location = new System.Drawing.Point(547, 0);
+            this.cmdLoad.Name = "cmdLoad";
+            this.cmdLoad.Size = new System.Drawing.Size(75, 20);
+            this.cmdLoad.TabIndex = 15;
+            this.cmdLoad.Text = "load";
+            this.cmdLoad.UseVisualStyleBackColor = true;
+            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
+            // 
+            // cmdSave
+            // 
+            this.cmdSave.Location = new System.Drawing.Point(488, -3);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(53, 23);
+            this.cmdSave.TabIndex = 14;
+            this.cmdSave.Text = "save";
+            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // txtServerAccessUri
             // 
@@ -113,7 +137,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 154);
+            this.label10.Location = new System.Drawing.Point(8, 150);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(126, 13);
             this.label10.TabIndex = 12;
@@ -140,7 +164,7 @@
             // cmdServerCreate
             // 
             this.cmdServerCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdServerCreate.Location = new System.Drawing.Point(554, 169);
+            this.cmdServerCreate.Location = new System.Drawing.Point(554, 193);
             this.cmdServerCreate.Name = "cmdServerCreate";
             this.cmdServerCreate.Size = new System.Drawing.Size(75, 23);
             this.cmdServerCreate.TabIndex = 6;
@@ -169,7 +193,7 @@
             // lblServerGUID
             // 
             this.lblServerGUID.AutoSize = true;
-            this.lblServerGUID.Location = new System.Drawing.Point(137, 174);
+            this.lblServerGUID.Location = new System.Drawing.Point(137, 203);
             this.lblServerGUID.Name = "lblServerGUID";
             this.lblServerGUID.Size = new System.Drawing.Size(25, 13);
             this.lblServerGUID.TabIndex = 7;
@@ -237,7 +261,7 @@
             this.gbResourceOwner.Controls.Add(this.cmdResourceOwnerCreate);
             this.gbResourceOwner.Controls.Add(this.txtResourceOwnerName);
             this.gbResourceOwner.Controls.Add(this.label4);
-            this.gbResourceOwner.Location = new System.Drawing.Point(4, 206);
+            this.gbResourceOwner.Location = new System.Drawing.Point(4, 236);
             this.gbResourceOwner.Name = "gbResourceOwner";
             this.gbResourceOwner.Size = new System.Drawing.Size(634, 70);
             this.gbResourceOwner.TabIndex = 1;
@@ -291,9 +315,9 @@
             this.gbWorkflow.Controls.Add(this.webBrowser1);
             this.gbWorkflow.Controls.Add(this.lblAuthorizationCode);
             this.gbWorkflow.Controls.Add(this.cmdAuthorizationCodeRedirect);
-            this.gbWorkflow.Location = new System.Drawing.Point(4, 282);
+            this.gbWorkflow.Location = new System.Drawing.Point(4, 312);
             this.gbWorkflow.Name = "gbWorkflow";
-            this.gbWorkflow.Size = new System.Drawing.Size(634, 231);
+            this.gbWorkflow.Size = new System.Drawing.Size(634, 317);
             this.gbWorkflow.TabIndex = 2;
             this.gbWorkflow.TabStop = false;
             this.gbWorkflow.Text = "Workflow";
@@ -316,7 +340,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(9, 62);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(619, 163);
+            this.webBrowser1.Size = new System.Drawing.Size(619, 249);
             this.webBrowser1.TabIndex = 2;
             // 
             // lblAuthorizationCode
@@ -350,7 +374,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.cmdGetToken);
-            this.groupBox1.Location = new System.Drawing.Point(4, 519);
+            this.groupBox1.Location = new System.Drawing.Point(4, 635);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(634, 79);
             this.groupBox1.TabIndex = 3;
@@ -434,29 +458,27 @@
             // 
             this.toolTip1.ToolTipTitle = "seperate Scopes by commas, e.g. \"read, write, delete\"";
             // 
-            // cmdSave
-            // 
-            this.cmdSave.Location = new System.Drawing.Point(488, -3);
-            this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(53, 23);
-            this.cmdSave.TabIndex = 14;
-            this.cmdSave.Text = "save";
-            this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
-            // 
-            // cmdLoad
-            // 
-            this.cmdLoad.Location = new System.Drawing.Point(547, 0);
-            this.cmdLoad.Name = "cmdLoad";
-            this.cmdLoad.Size = new System.Drawing.Size(75, 20);
-            this.cmdLoad.TabIndex = 15;
-            this.cmdLoad.Text = "load";
-            this.cmdLoad.UseVisualStyleBackColor = true;
-            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // cbVersion
+            // 
+            this.cbVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVersion.FormattingEnabled = true;
+            this.cbVersion.Location = new System.Drawing.Point(140, 173);
+            this.cbVersion.Name = "cbVersion";
+            this.cbVersion.Size = new System.Drawing.Size(121, 21);
+            this.cbVersion.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 176);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "OAuthVersion";
             // 
             // OAuthServerWithAuthorizationCode
             // 
@@ -467,7 +489,8 @@
             this.Controls.Add(this.gbResourceOwner);
             this.Controls.Add(this.gbServer);
             this.Name = "OAuthServerWithAuthorizationCode";
-            this.Size = new System.Drawing.Size(641, 601);
+            this.Size = new System.Drawing.Size(641, 717);
+            this.Load += new System.EventHandler(this.OAuthServerWithAuthorizationCode_Load);
             this.gbServer.ResumeLayout(false);
             this.gbServer.PerformLayout();
             this.gbResourceOwner.ResumeLayout(false);
@@ -521,5 +544,7 @@
         private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbVersion;
     }
 }

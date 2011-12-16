@@ -7,11 +7,13 @@ namespace NNS.Authentication.OAuth2.Exceptions
     {
         public HttpStatusCode StatusCode;
         public HttpWebResponse Response;
+        public String ResponseText;
 
-        public InvalidStatusCodeException(HttpStatusCode statusCode, HttpWebResponse response)
+        public InvalidStatusCodeException(HttpStatusCode statusCode, HttpWebResponse response, String responseText)
         {
             StatusCode = statusCode;
             Response = response;
+            ResponseText = responseText;
         }
     }
 }

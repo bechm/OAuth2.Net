@@ -11,3 +11,12 @@ https://www.facebook.com/dialog/oauth
 https://graph.facebook.com/oauth/access_token
 
 Krik
+
+-------------------
+
+R44QA3CGWGEO3V50JG5U3CNZFTNC4J0JW14R01UPLUKPWSM5
+W5I43XCFGXTTIV2DT55O0TGIIHHW2SIEGMSQBOUJI2JDC0CR
+
+https://vsr.informatik.tu-chemnitz.de
+https://de.foursquare.com/oauth2/access_token
+https://de.foursquare.com/oauth2/authorize

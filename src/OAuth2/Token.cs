@@ -106,7 +106,19 @@ namespace NNS.Authentication.OAuth2
         internal void GetAccessAndRefreshToken()
         {
             var webRequest = GetWebRequestForAccessTokenRequest();
-            var response = (HttpWebResponse) webRequest.GetResponse();
+            HttpWebResponse response = null;
+            try
+            {
+                response = (HttpWebResponse)webRequest.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                response = (HttpWebResponse)ex.Response;
+                if (null == response)
+                {
+                    throw;
+                }
+            }
             SetAccessToken(response);
         }
 
@@ -119,50 +131,108 @@ namespace NNS.Authentication.OAuth2
             webRequest.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
             webRequest.SetBasicAuthenticationFor(Server);
 
-            var text = "grant_type=authorization_code" +
-                       "&code=" + AuthorizationCode +
-                       "&redirect=" + HttpUtility.UrlEncode(RedirectUri.ToString()).Replace(".", "%2e");
+            var text = "grant_type=authorization_code";
+
+            if (Server.Version == Server.OAuthVersion.v2_12)
+                text += "&client_id=" + Server.ClientId
+                        + "&client_secret=" + Server.ClientSharedSecret;
+            text += "&code=" + AuthorizationCode +
+                    "&redirect_uri=" + HttpUtility.UrlEncode(RedirectUri.ToString());
+
+
             var enc = new System.Text.UTF8Encoding();
             var buffer = enc.GetBytes(text);
             var requestStream = webRequest.GetRequestStream();
             requestStream.Write(buffer, 0, buffer.Length);
-
             return webRequest;
         }
 
         private void SetAccessToken(HttpWebResponse response)
         {
             var responseStream = response.GetResponseStream();
-            if (response.StatusCode != HttpStatusCode.OK)
-                throw new InvalidStatusCodeException(response.StatusCode, response);
-            
             var reader = new StreamReader(responseStream);
             var responseText = reader.ReadToEnd();
-
+            
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new InvalidStatusCodeException(response.StatusCode, response, responseText);
 
             if (responseText == "")
                 throw new AccessTokenRequestFailedException("empty responseStream", response);
 
-            Dictionary<string,string> values;
-            try
-            {
-                values = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
-            }
-            catch (JsonReaderException ex)
-            {
-                throw new AccessTokenRequestFailedException("no JSON in Response", response, ex);
-            }
+            var values = GetValuesFromResponse(response, responseText);
 
-            if(!values.ContainsKey("access_token"))
-                throw new AccessTokenRequestFailedException("access_token is missing in responseStream", response);
-            if (!values.ContainsKey("expires_in"))
-                throw new AccessTokenRequestFailedException("expires_in is missing in responseStream", response);
-            
-            AccessToken = values["access_token"];
-            Expires = DateTime.Now.AddSeconds(int.Parse(values["expires_in"]));
+            GetAccessToken(response, values);
+            GetExpires(response, values);
+            GetRefreshToken(values);
+        }
 
+        private void GetRefreshToken(Dictionary<string, string> values)
+        {
             if (values.ContainsKey("refresh_token"))
                 RefreshToken = values["refresh_token"];
+        }
+
+        private void GetAccessToken(HttpWebResponse response, Dictionary<string, string> values)
+        {
+            if (!values.ContainsKey("access_token"))
+                throw new AccessTokenRequestFailedException("access_token is missing in responseStream", response);
+            AccessToken = values["access_token"];
+        }
+
+        private void GetExpires(HttpWebResponse response, Dictionary<string, string> values)
+        {
+            if (Server.Version == Server.OAuthVersion.v2_12)
+            {
+                if (!values.ContainsKey("expires"))
+                    throw new AccessTokenRequestFailedException("expires is missing in responseStream", response);
+                Expires = DateTime.Now.AddSeconds(int.Parse(values["expires"]));
+            }
+            else
+            {
+                if (!values.ContainsKey("expires_in"))
+                    throw new AccessTokenRequestFailedException("expires_in is missing in responseStream", response);
+                Expires = DateTime.Now.AddSeconds(int.Parse(values["expires_in"]));
+            }
+            
+        }
+
+        private Dictionary<string, string> GetValuesFromResponse(HttpWebResponse response, string responseText)
+        {
+            Dictionary<string, string> values;
+            if (Server.Version == Server.OAuthVersion.v2_12)
+            {
+                try
+                {
+
+
+                    var pairs = responseText.Split('&');
+                    values = new Dictionary<string, string>();
+                    foreach (var pair in pairs)
+                    {
+                        var keyvaluepair = pair.Split('=');
+                        values.Add(keyvaluepair[0], keyvaluepair[1]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new AccessTokenRequestFailedException("no valid String in Response", response, ex);
+                }
+
+            }
+            else
+            {
+                
+                try
+                {
+                    values = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
+                }
+                catch (JsonReaderException ex)
+                {
+                    throw new AccessTokenRequestFailedException("no JSON in Response", response, ex);
+                }
+                
+            }
+            return values;
         }
     }
 }

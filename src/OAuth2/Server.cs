@@ -13,5 +13,12 @@ namespace NNS.Authentication.OAuth2
         public String ClientId { get; internal set; }
         public String ClientSharedSecret { get; internal set; }
         public Uri AccessTokenRequestUri { get; internal set; }
+        public OAuthVersion Version;
+
+        public enum OAuthVersion
+        {
+            v2_22,
+            v2_12
+        }
     }
 }

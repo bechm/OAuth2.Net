@@ -15,7 +15,7 @@ namespace NNS.Authentication.OAuth2.Exceptions
             Response = response;
         }
 
-        public AccessTokenRequestFailedException(string info, HttpWebResponse response, Newtonsoft.Json.JsonReaderException ex)
+        public AccessTokenRequestFailedException(string info, HttpWebResponse response, Exception ex)
         {
             Info = info;
             Response = response;
