@@ -111,7 +111,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var authorizationRequestUri = new Uri("http://example.com/TokenTest/AuthRequest");
             var accessTokenRequestUri = new Uri("http://example.com/TokenTest/accessTokenRequestUri");
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
-            var server = ServersWithAuthorizationCode.Add("testauthredirectserver", "testsecret", authorizationRequestUri, redirectUri,accessTokenRequestUri, new List<string>(){"scope1", "scope2"});
+            var server = ServersWithAuthorizationCode.Add("testauthredirectserver", "testsecret", authorizationRequestUri, accessTokenRequestUri,redirectUri, new List<string>(){"scope1", "scope2"});
             
             var mock = new Mock<IOutgoingWebResponseContext>() {};
             var outgoingResponse = mock.Object;

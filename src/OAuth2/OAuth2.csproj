@@ -52,6 +52,7 @@
     <Compile Include="Exceptions\InvalidAuthorizationRequestException.cs" />
     <Compile Include="Exceptions\InvalidTypeException.cs" />
     <Compile Include="Exceptions\UserAlredyExistsException.cs" />
+    <Compile Include="Exceptions\NoAuthorizationCodeException.cs" />
     <Compile Include="Extensions\WebRequestExtensions.cs" />
     <Compile Include="Exceptions\InvalidStatusCodeException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

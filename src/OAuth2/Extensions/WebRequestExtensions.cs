@@ -85,10 +85,6 @@ namespace NNS.Authentication.OAuth2.Extensions
             authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
             webRequest.Headers["Authorization"] = "Basic " + authInfo;
         }
-
-        public static void SignRequest(this HttpWebRequest webRequest, Server server, ResourceOwner resourceOwner)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

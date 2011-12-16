@@ -49,6 +49,9 @@ namespace NNS.Authentication.OAuth2.TestClient
 
         private void CmdAuthorizationCodeRedirectClick(object sender, EventArgs e)
         {
+            richTextBox1.Visible = false;
+            webBrowser1.Visible = true;
+
             var mock = new Mock<IOutgoingWebResponseContext>() {};
             var outgoingResponse = mock.Object;
             mock.SetupAllProperties();
@@ -63,6 +66,7 @@ namespace NNS.Authentication.OAuth2.TestClient
             {
                 MessageBox.Show("an error occured, no redirect");
             }
+            
 
         }
 
@@ -194,6 +198,19 @@ namespace NNS.Authentication.OAuth2.TestClient
             foreach (var versionNumber in Enum.GetValues(typeof (Server.OAuthVersion)))
                 cbVersion.Items.Add(versionNumber);
             cbVersion.SelectedIndex = 0;
+        }
+
+        private void cmdGetProtectedResource_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Visible = true;
+            webBrowser1.Visible = false;
+            
+            var webRequest = _resourceOwner.GetSignedRequestFor(_server, txtProtectedResource.Text);
+            var response = webRequest.GetResponse();
+            var responseStream = response.GetResponseStream();
+            var reader = new StreamReader( responseStream );
+            var text = reader.ReadToEnd();
+            richTextBox1.Text = text;
         }
     }
 

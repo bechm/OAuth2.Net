@@ -111,5 +111,30 @@ namespace NNS.Authentication.OAuth2.UnitTests
             resourceOwner2.AuthorizesMeToAccessTo(server).Should().BeFalse();
 
         }
+
+        [Test]
+        public void GetSignedRequestTest()
+        {
+            var resourceOwner = ResourceOwners.Add("testusersignedRequest");
+            var server = ServersWithAuthorizationCode.Add("clientid",
+                                                          "secret",
+                                                          new Uri("http://example.org/auth"),
+                                                          new Uri("http://example.org/access"),
+                                                          new Uri("http://example.org/redirect"));
+            var token = new Token(server, resourceOwner);
+            Tokens.AddToken(token);
+            token.AuthorizationCode = "authcode";
+            token.AccessToken = "access123";
+            token.Expires = DateTime.Now.AddHours(1);
+            
+            var location1 = "http://example.org/protectedresource1";
+            var location2 = "http://example.org/protectedresource2?foo=bar";
+
+            var webRequest1 = resourceOwner.GetSignedRequestFor(server, location1);
+            var webRequest2 = resourceOwner.GetSignedRequestFor(server, location2);
+
+            webRequest1.RequestUri.Should().Be(location1 + "?access_token=access123");
+            webRequest2.RequestUri.Should().Be(location2 + "&access_token=access123");
+        }
     }
 }
