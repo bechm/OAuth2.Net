@@ -18,6 +18,7 @@ namespace NNS.Authentication.OAuth2
         public enum OAuthVersion
         {
             v2_22,
+            v2_16,
             v2_12
         }
     }

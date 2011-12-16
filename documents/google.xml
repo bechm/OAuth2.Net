@@ -1,0 +1,34 @@
+<root>
+  <TextBox>
+    <Name>txtResourceOwnerName</Name>
+    <Text>TestUser</Text>
+  </TextBox>
+  <TextBox>
+    <Name>cbVersion</Name>
+    <SelectedItem>v2_16</SelectedItem>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAccessUri</Name>
+    <Text>https://accounts.google.com/o/oauth2/token</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtScope</Name>
+    <Text>https://www.googleapis.com/auth/plus.me</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtClientSharedSecret</Name>
+    <Text>gL9tTboQxtDlS9aEnC_WiiCj</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAuthorizationUri</Name>
+    <Text>https://accounts.google.com/o/oauth2/auth</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerRedirectionUri</Name>
+    <Text>https://vsr.informatik.tu-chemnitz.de</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerClientId</Name>
+    <Text>934050279130.apps.googleusercontent.com</Text>
+  </TextBox>
+</root>

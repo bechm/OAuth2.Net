@@ -1,0 +1,34 @@
+<root>
+  <TextBox>
+    <Name>txtResourceOwnerName</Name>
+    <Text>TestUser</Text>
+  </TextBox>
+  <TextBox>
+    <Name>cbVersion</Name>
+    <SelectedItem>v2_12</SelectedItem>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAccessUri</Name>
+    <Text>https://graph.facebook.com/oauth/access_token</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtScope</Name>
+    <Text>read_stream, publish_stream</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtClientSharedSecret</Name>
+    <Text>b2879554cb0fd70b6a5f6df838f82684</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAuthorizationUri</Name>
+    <Text>https://www.facebook.com/dialog/oauth</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerRedirectionUri</Name>
+    <Text>https://tu-chemnitz.de/</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerClientId</Name>
+    <Text>268852326492238</Text>
+  </TextBox>
+</root>

@@ -133,7 +133,7 @@ namespace NNS.Authentication.OAuth2
 
             var text = "grant_type=authorization_code";
 
-            if (Server.Version == Server.OAuthVersion.v2_12)
+            if (Server.Version == Server.OAuthVersion.v2_12 || Server.Version == Server.OAuthVersion.v2_16) //Ab der 17 wird BasicAuth verwendet
                 text += "&client_id=" + Server.ClientId
                         + "&client_secret=" + Server.ClientSharedSecret;
             text += "&code=" + AuthorizationCode +
@@ -183,15 +183,11 @@ namespace NNS.Authentication.OAuth2
         {
             if (Server.Version == Server.OAuthVersion.v2_12)
             {
-                if (!values.ContainsKey("expires"))
-                    throw new AccessTokenRequestFailedException("expires is missing in responseStream", response);
-                Expires = DateTime.Now.AddSeconds(int.Parse(values["expires"]));
+                Expires = !values.ContainsKey("expires") ? new DateTime(2099, 12, 31, 23, 59, 59) : DateTime.Now.AddSeconds(int.Parse(values["expires"]));
             }
             else
             {
-                if (!values.ContainsKey("expires_in"))
-                    throw new AccessTokenRequestFailedException("expires_in is missing in responseStream", response);
-                Expires = DateTime.Now.AddSeconds(int.Parse(values["expires_in"]));
+                Expires = !values.ContainsKey("expires_in") ? new DateTime(2099,12,31,23,59,59) : DateTime.Now.AddSeconds(int.Parse(values["expires_in"]));
             }
             
         }

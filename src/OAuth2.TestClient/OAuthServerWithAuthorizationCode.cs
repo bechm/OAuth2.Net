@@ -86,7 +86,7 @@ namespace NNS.Authentication.OAuth2.TestClient
             _token.GetAccessAndRefreshToken();
             lblAccessToken.Text = _token.AccessToken;
             lblRefreshToken.Text = _token.RefreshToken;
-            lblExpires.Text = _token.Expires.ToString(":dd/MM/yyyy HH:mm:ss");
+            lblExpires.Text = _token.Expires.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void cmdSave_Click(object sender, EventArgs e)

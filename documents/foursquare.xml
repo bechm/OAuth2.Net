@@ -1,0 +1,34 @@
+<root>
+  <TextBox>
+    <Name>txtResourceOwnerName</Name>
+    <Text>TestUser</Text>
+  </TextBox>
+  <TextBox>
+    <Name>cbVersion</Name>
+    <SelectedItem>v2_22</SelectedItem>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAccessUri</Name>
+    <Text>https://de.foursquare.com/oauth2/access_token</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtScope</Name>
+    <Text></Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtClientSharedSecret</Name>
+    <Text>W5I43XCFGXTTIV2DT55O0TGIIHHW2SIEGMSQBOUJI2JDC0CR</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerAuthorizationUri</Name>
+    <Text>https://de.foursquare.com/oauth2/authenticate</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerRedirectionUri</Name>
+    <Text>https://vsr.informatik.tu-chemnitz.de</Text>
+  </TextBox>
+  <TextBox>
+    <Name>txtServerClientId</Name>
+    <Text>R44QA3CGWGEO3V50JG5U3CNZFTNC4J0JW14R01UPLUKPWSM5</Text>
+  </TextBox>
+</root>
