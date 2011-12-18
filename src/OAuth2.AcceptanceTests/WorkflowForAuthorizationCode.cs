@@ -85,8 +85,7 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             resourceOwner.Should().Be(resourceOwner);
 
             
-            var webRequest = (HttpWebRequest) WebRequest.Create("http://example.com/ProtectedResource");
-            webRequest.SignRequest(server,resourceOwner);
+            var webRequest = resourceOwner.GetSignedRequestFor(server,"http://example.com/ProtectedResource");;
 
             //Test ob WebRequest richtig unterschrieben wurde
 
