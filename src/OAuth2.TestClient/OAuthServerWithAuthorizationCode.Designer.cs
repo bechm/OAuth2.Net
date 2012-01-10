@@ -54,11 +54,15 @@
             this.txtResourceOwnerName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbWorkflow = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.cmdGetAuthorizationCode = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lblAuthorizationCode = new System.Windows.Forms.Label();
             this.cmdAuthorizationCodeRedirect = new System.Windows.Forms.Button();
             this.gbResult = new System.Windows.Forms.GroupBox();
+            this.cmdGetProtectedResource = new System.Windows.Forms.Button();
+            this.txtProtectedResource = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblExpires = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblRefreshToken = new System.Windows.Forms.Label();
@@ -70,10 +74,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.txtProtectedResource = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmdGetProtectedResource = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.gbServer.SuspendLayout();
             this.gbResourceOwner.SuspendLayout();
             this.gbWorkflow.SuspendLayout();
@@ -86,8 +86,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbServer.Controls.Add(this.label11);
             this.gbServer.Controls.Add(this.cbVersion);
-            this.gbServer.Controls.Add(this.cmdLoad);
-            this.gbServer.Controls.Add(this.cmdSave);
             this.gbServer.Controls.Add(this.txtServerAccessUri);
             this.gbServer.Controls.Add(this.label10);
             this.gbServer.Controls.Add(this.txtScope);
@@ -102,7 +100,7 @@
             this.gbServer.Controls.Add(this.label2);
             this.gbServer.Controls.Add(this.txtServerClientId);
             this.gbServer.Controls.Add(this.label1);
-            this.gbServer.Location = new System.Drawing.Point(3, 3);
+            this.gbServer.Location = new System.Drawing.Point(3, 22);
             this.gbServer.Name = "gbServer";
             this.gbServer.Size = new System.Drawing.Size(635, 227);
             this.gbServer.TabIndex = 0;
@@ -129,7 +127,8 @@
             // 
             // cmdLoad
             // 
-            this.cmdLoad.Location = new System.Drawing.Point(547, 0);
+            this.cmdLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdLoad.Location = new System.Drawing.Point(476, 0);
             this.cmdLoad.Name = "cmdLoad";
             this.cmdLoad.Size = new System.Drawing.Size(75, 20);
             this.cmdLoad.TabIndex = 15;
@@ -139,9 +138,10 @@
             // 
             // cmdSave
             // 
-            this.cmdSave.Location = new System.Drawing.Point(488, -3);
+            this.cmdSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdSave.Location = new System.Drawing.Point(557, 0);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(53, 23);
+            this.cmdSave.Size = new System.Drawing.Size(75, 20);
             this.cmdSave.TabIndex = 14;
             this.cmdSave.Text = "save";
             this.cmdSave.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@
             this.gbResourceOwner.Controls.Add(this.cmdResourceOwnerCreate);
             this.gbResourceOwner.Controls.Add(this.txtResourceOwnerName);
             this.gbResourceOwner.Controls.Add(this.label4);
-            this.gbResourceOwner.Location = new System.Drawing.Point(4, 236);
+            this.gbResourceOwner.Location = new System.Drawing.Point(4, 255);
             this.gbResourceOwner.Name = "gbResourceOwner";
             this.gbResourceOwner.Size = new System.Drawing.Size(634, 70);
             this.gbResourceOwner.TabIndex = 1;
@@ -338,12 +338,23 @@
             this.gbWorkflow.Controls.Add(this.webBrowser1);
             this.gbWorkflow.Controls.Add(this.lblAuthorizationCode);
             this.gbWorkflow.Controls.Add(this.cmdAuthorizationCodeRedirect);
-            this.gbWorkflow.Location = new System.Drawing.Point(4, 312);
+            this.gbWorkflow.Location = new System.Drawing.Point(4, 331);
             this.gbWorkflow.Name = "gbWorkflow";
-            this.gbWorkflow.Size = new System.Drawing.Size(634, 196);
+            this.gbWorkflow.Size = new System.Drawing.Size(634, 224);
             this.gbWorkflow.TabIndex = 2;
             this.gbWorkflow.TabStop = false;
             this.gbWorkflow.Text = "Workflow";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(10, 62);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(618, 156);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
             // 
             // cmdGetAuthorizationCode
             // 
@@ -363,7 +374,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(9, 62);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(619, 128);
+            this.webBrowser1.Size = new System.Drawing.Size(619, 156);
             this.webBrowser1.TabIndex = 2;
             // 
             // lblAuthorizationCode
@@ -400,12 +411,41 @@
             this.gbResult.Controls.Add(this.label5);
             this.gbResult.Controls.Add(this.button1);
             this.gbResult.Controls.Add(this.cmdGetToken);
-            this.gbResult.Location = new System.Drawing.Point(4, 514);
+            this.gbResult.Location = new System.Drawing.Point(4, 561);
             this.gbResult.Name = "gbResult";
             this.gbResult.Size = new System.Drawing.Size(634, 95);
             this.gbResult.TabIndex = 3;
             this.gbResult.TabStop = false;
             this.gbResult.Text = "Result";
+            // 
+            // cmdGetProtectedResource
+            // 
+            this.cmdGetProtectedResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdGetProtectedResource.Location = new System.Drawing.Point(553, 69);
+            this.cmdGetProtectedResource.Name = "cmdGetProtectedResource";
+            this.cmdGetProtectedResource.Size = new System.Drawing.Size(75, 23);
+            this.cmdGetProtectedResource.TabIndex = 14;
+            this.cmdGetProtectedResource.Text = "get";
+            this.cmdGetProtectedResource.UseVisualStyleBackColor = true;
+            this.cmdGetProtectedResource.Click += new System.EventHandler(this.cmdGetProtectedResource_Click);
+            // 
+            // txtProtectedResource
+            // 
+            this.txtProtectedResource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProtectedResource.Location = new System.Drawing.Point(139, 71);
+            this.txtProtectedResource.Name = "txtProtectedResource";
+            this.txtProtectedResource.Size = new System.Drawing.Size(412, 20);
+            this.txtProtectedResource.TabIndex = 13;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(98, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "protectedResource";
             // 
             // lblExpires
             // 
@@ -488,56 +528,18 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // txtProtectedResource
-            // 
-            this.txtProtectedResource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProtectedResource.Location = new System.Drawing.Point(139, 71);
-            this.txtProtectedResource.Name = "txtProtectedResource";
-            this.txtProtectedResource.Size = new System.Drawing.Size(412, 20);
-            this.txtProtectedResource.TabIndex = 13;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 74);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "protectedResource";
-            // 
-            // cmdGetProtectedResource
-            // 
-            this.cmdGetProtectedResource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdGetProtectedResource.Location = new System.Drawing.Point(553, 69);
-            this.cmdGetProtectedResource.Name = "cmdGetProtectedResource";
-            this.cmdGetProtectedResource.Size = new System.Drawing.Size(75, 23);
-            this.cmdGetProtectedResource.TabIndex = 14;
-            this.cmdGetProtectedResource.Text = "get";
-            this.cmdGetProtectedResource.UseVisualStyleBackColor = true;
-            this.cmdGetProtectedResource.Click += new System.EventHandler(this.cmdGetProtectedResource_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(10, 62);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(618, 128);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
-            // 
             // OAuthServerWithAuthorizationCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbResult);
             this.Controls.Add(this.gbWorkflow);
+            this.Controls.Add(this.cmdLoad);
             this.Controls.Add(this.gbResourceOwner);
+            this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.gbServer);
             this.Name = "OAuthServerWithAuthorizationCode";
-            this.Size = new System.Drawing.Size(641, 612);
+            this.Size = new System.Drawing.Size(641, 659);
             this.Load += new System.EventHandler(this.OAuthServerWithAuthorizationCode_Load);
             this.gbServer.ResumeLayout(false);
             this.gbServer.PerformLayout();

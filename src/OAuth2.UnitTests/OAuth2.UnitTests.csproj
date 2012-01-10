@@ -55,6 +55,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebComposition.Dgs.Core">
+      <HintPath>..\..\external\WebComposition.Dgs.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessTokenTests.cs" />
@@ -71,10 +74,6 @@
     <ProjectReference Include="..\OAuth2\OAuth2.csproj">
       <Project>{8CB9B7E6-B0AF-4832-B1DF-A33CFF07F5EB}</Project>
       <Name>OAuth2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WCFMock\WCFMock.csproj">
-      <Project>{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}</Project>
-      <Name>WCFMock</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

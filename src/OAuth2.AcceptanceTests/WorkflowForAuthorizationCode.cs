@@ -2,6 +2,7 @@
 using System.Net;
 using System.Runtime.Remoting.Proxies;
 using System.ServiceModel.Web;
+using System.ServiceModel.Web.Interfaces;
 using FluentAssertions;
 using Moq;
 using NNS.Authentication.OAuth2.Extensions;
@@ -45,16 +46,15 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
                                                                                      _accessTokenRequestUri,
                                                                                      _redirectionUri);
 
-            var mockContext = new Mock<IOutgoingWebResponseContext> {DefaultValue = DefaultValue.Mock};
+            var mockContext = new Mock<IWebOperationContext> {DefaultValue = DefaultValue.Mock};
             mockContext.SetupAllProperties();
             resourceOwner.AuthorizesMeToAccessTo(server).Should().BeFalse();
+            var context = mockContext.Object;
 
+            context.RedirectToAuthorization(server, resourceOwner);
 
-            var outgoingResponse = mockContext.Object;
-            outgoingResponse.RedirectToAuthorization(server, resourceOwner);
-
-            outgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
-            outgoingResponse.Location.Should().NotBeNullOrEmpty();
+            context.OutgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
+            context.OutgoingResponse.Location.Should().NotBeNullOrEmpty();
 
         }
 
@@ -69,14 +69,14 @@ namespace NNS.Authentication.OAuth2.AcceptanceTests
             var resourceOwnertmp = ResourceOwners.GetResourceOwner(_resourceOwnerName);
             var servertmp = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(_clientId, _authorizationRequestUri,_accessTokenRequestUri, _redirectionUri);
 
-            var mockContext = new Mock<IIncomingWebRequestContext> { DefaultValue = DefaultValue.Mock };
+            var mockContext = new Mock<IWebOperationContext> { DefaultValue = DefaultValue.Mock };
             mockContext.SetupAllProperties();
-            var incommingRequest = mockContext.Object;
+            var context = mockContext.Object;
 
-            incommingRequest.UriTemplateMatch.RequestUri = _redirectionUri;
-            incommingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
-            incommingRequest.UriTemplateMatch.QueryParameters.Add("state", servertmp.Guid.ToString() + "_" + resourceOwnertmp.Guid.ToString());
-            var tuple = incommingRequest.GetCredentialsFromAuthorizationRedirect();
+            context.IncomingRequest.UriTemplateMatch.RequestUri = _redirectionUri;
+            context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
+            context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("state", servertmp.Guid.ToString() + "_" + resourceOwnertmp.Guid.ToString());
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
 
             var server = tuple.Item1;
             var resourceOwner = tuple.Item2;

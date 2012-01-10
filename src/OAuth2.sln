@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.UnitTests", "OAuth2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.AcceptanceTests", "OAuth2.AcceptanceTests\OAuth2.AcceptanceTests.csproj", "{372458DD-72BE-4A01-ACA6-BF94B406E077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFMock", "WCFMock\WCFMock.csproj", "{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.TestClient", "OAuth2.TestClient\OAuth2.TestClient.csproj", "{6E3DB716-D98F-4B41-AD71-EEB10D8FD666}"
 EndProject
 Global
@@ -51,16 +49,6 @@ Global
 		{372458DD-72BE-4A01-ACA6-BF94B406E077}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{372458DD-72BE-4A01-ACA6-BF94B406E077}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{372458DD-72BE-4A01-ACA6-BF94B406E077}.Release|x86.ActiveCfg = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{1C97CC1D-27E9-4DD0-B1D3-BE0541162ED9}.Release|x86.ActiveCfg = Release|Any CPU
 		{6E3DB716-D98F-4B41-AD71-EEB10D8FD666}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{6E3DB716-D98F-4B41-AD71-EEB10D8FD666}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{6E3DB716-D98F-4B41-AD71-EEB10D8FD666}.Debug|Mixed Platforms.Build.0 = Debug|x86

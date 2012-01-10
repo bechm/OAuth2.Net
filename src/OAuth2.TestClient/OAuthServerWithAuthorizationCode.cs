@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.ServiceModel.Web;
+using System.ServiceModel.Web.Interfaces;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -52,15 +53,15 @@ namespace NNS.Authentication.OAuth2.TestClient
             richTextBox1.Visible = false;
             webBrowser1.Visible = true;
 
-            var mock = new Mock<IOutgoingWebResponseContext>() {};
-            var outgoingResponse = mock.Object;
+            var mock = new Mock<IWebOperationContext>() {};
+            var context = mock.Object;
             mock.SetupAllProperties();
 
-            outgoingResponse.RedirectToAuthorization(_server, _resourceOwner);
+            context.RedirectToAuthorization(_server, _resourceOwner);
 
-            if (outgoingResponse.StatusCode == HttpStatusCode.Redirect)
+            if (context.OutgoingResponse.StatusCode == HttpStatusCode.Redirect)
             {
-                webBrowser1.Navigate(outgoingResponse.Location);
+                webBrowser1.Navigate(context.OutgoingResponse.Location);
             }
             else
             {
@@ -72,13 +73,13 @@ namespace NNS.Authentication.OAuth2.TestClient
 
         private void CmdGetAuthorizationCodeClick(object sender, EventArgs e)
         {
-            var mock = new Mock<IIncomingWebRequestContext> {DefaultValue = DefaultValue.Mock};
-            var incommingRequest = mock.Object;
+            var mock = new Mock<IWebOperationContext> {DefaultValue = DefaultValue.Mock};
+            var context = mock.Object;
             mock.SetupAllProperties();
 
-            incommingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
+            context.IncomingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
 
-            var tuple = incommingRequest.GetCredentialsFromAuthorizationRedirect();
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
             _token = Tokens.GetToken(tuple.Item1, tuple.Item2);
 
             lblAuthorizationCode.Text = _token.AuthorizationCode;

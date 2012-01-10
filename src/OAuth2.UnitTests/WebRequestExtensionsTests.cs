@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using System.ServiceModel.Web.Interfaces;
 using System.Text;
 using FluentAssertions;
 using Moq;
@@ -41,7 +42,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             context.IncomingRequest.UriTemplateMatch.RequestUri = new Uri("http://example.org/TokenTest/Redirect");
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("code","Splx10BeZQQYbYS6WxSbIA");
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("state",server.Guid.ToString() + "_" + resourceOwner.Guid.ToString());
-            var tuple = context.IncomingRequest.GetCredentialsFromAuthorizationRedirect();
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
 
             tuple.Item1.AuthorizationRequestUri.ToString().Should().Be(server.AuthorizationRequestUri.ToString());
             tuple.Item1.RedirectionUri.ToString().Should().Be(server.RedirectionUri.ToString());
@@ -64,7 +65,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var context = mockContext.Object;
             context.IncomingRequest.UriTemplateMatch.RequestUri = new Uri("http://example.org/TokenTest/Redirect");
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("state", "foobar");
-            var tuple = context.IncomingRequest.GetCredentialsFromAuthorizationRedirect();
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
 
         }
 
@@ -78,7 +79,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             context.IncomingRequest.UriTemplateMatch.RequestUri = new Uri("http://example.org/TokenTest/Redirect");
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
             
-            var tuple = context.IncomingRequest.GetCredentialsFromAuthorizationRedirect();
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
 
         }
 
@@ -93,7 +94,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("code", "Splx10BeZQQYbYS6WxSbIA");
             context.IncomingRequest.UriTemplateMatch.QueryParameters.Add("state", "foobar");
 
-            var tuple = context.IncomingRequest.GetCredentialsFromAuthorizationRedirect();
+            var tuple = context.GetCredentialsFromAuthorizationRedirect();
 
         }
 
@@ -113,19 +114,19 @@ namespace NNS.Authentication.OAuth2.UnitTests
             var redirectUri = new Uri("http://example.com/TokenTest/Redirect");
             var server = ServersWithAuthorizationCode.Add("testauthredirectserver", "testsecret", authorizationRequestUri, accessTokenRequestUri,redirectUri, new List<string>(){"scope1", "scope2"});
             
-            var mock = new Mock<IOutgoingWebResponseContext>() {};
-            var outgoingResponse = mock.Object;
+            var mock = new Mock<IWebOperationContext>() {};
+            var context = mock.Object;
             mock.SetupAllProperties();
 
-            outgoingResponse.RedirectToAuthorization(server, resourceOwner);
-            outgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
+            context.RedirectToAuthorization(server, resourceOwner);
+            context.OutgoingResponse.StatusCode.Should().Be(HttpStatusCode.Redirect);
 
             var expectedRedirectionUri = "http://example.com/TokenTest/AuthRequest?response_type=code&client_id=" +
                                          server.ClientId +
                                          "&state=" + server.Guid + "_" + resourceOwner.Guid +
                                          "&scope=scope1+scope2"  +
                                          "&redirect_uri=http%3a%2f%2fexample.com%2fTokenTest%2fRedirect";
-            outgoingResponse.Location.Should().Be(expectedRedirectionUri);
+            context.OutgoingResponse.Location.Should().Be(expectedRedirectionUri);
 
             var token = Tokens.GetToken(server, resourceOwner);
             token.RedirectUri.ToString().Should().Be(redirectUri.ToString());

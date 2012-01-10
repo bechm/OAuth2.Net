@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.oAuthServerWithAuthorizationCode1 = new OAuthServerWithAuthorizationCode();
+            this.oAuthServerWithAuthorizationCode1 = new NNS.Authentication.OAuth2.TestClient.OAuthServerWithAuthorizationCode();
             this.SuspendLayout();
             // 
             // oAuthServerWithAuthorizationCode1
@@ -46,7 +46,7 @@
             this.ClientSize = new System.Drawing.Size(729, 606);
             this.Controls.Add(this.oAuthServerWithAuthorizationCode1);
             this.Name = "Form1";
-            this.Text = "NNS OAuth2.0 TestClient";
+            this.Text = "OAuth2.0 TestClient";
             this.ResumeLayout(false);
 
         }
