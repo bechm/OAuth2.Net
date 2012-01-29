@@ -59,5 +59,11 @@ namespace NNS.Authentication.OAuth2
             var webRequest = (HttpWebRequest)WebRequest.Create(location);
             return webRequest;
         }
+
+        public void ResetAuthorizationForServer(ServerWithAuthorizationCode server)
+        {
+            var token = Tokens.GetToken(server, this);
+            token.AuthorizationCode = "";
+        }
     }
 }
