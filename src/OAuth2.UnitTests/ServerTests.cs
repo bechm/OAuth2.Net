@@ -57,6 +57,7 @@ namespace NNS.Authentication.OAuth2.UnitTests
                                                            new Uri("http://example.com/AuthorizationRequest2"),
                                                            new Uri("http://example.com/AccessRequest2"),
                                                            new Uri("http://example.com/RedirectionUri2"));
+            server2.Version = Server.OAuthVersion.v2_22;
 
 
             var server1Result = ServersWithAuthorizationCode.GetServerWithAuthorizationCode(server1.Guid);

@@ -53,9 +53,10 @@ namespace NNS.Authentication.OAuth2.TestClient
             richTextBox1.Visible = false;
             webBrowser1.Visible = true;
 
-            var mock = new Mock<IWebOperationContext>() {};
-            var context = mock.Object;
-            mock.SetupAllProperties();
+            //var mock = new Mock<IWebOperationContext>() {};
+            //var context = mock.Object;
+            //mock.SetupAllProperties();
+            var context = Helpers.GetWebcontext("GET");
 
             context.RedirectToAuthorization(_server, _resourceOwner);
 
@@ -74,12 +75,15 @@ namespace NNS.Authentication.OAuth2.TestClient
         private void CmdGetAuthorizationCodeClick(object sender, EventArgs e)
         {
             var mock = new Mock<IWebOperationContext> {DefaultValue = DefaultValue.Mock};
-            var context = mock.Object;
+            var incommingWebContext = mock.Object;
             mock.SetupAllProperties();
 
-            context.IncomingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
+            incommingWebContext.IncomingRequest.UriTemplateMatch.RequestUri = webBrowser1.Url;
 
-            var tuple = context.GetCredentialsFromAuthorizationRedirect();
+            Tuple<ServerWithAuthorizationCode, ResourceOwner> tuple;
+            tuple = incommingWebContext.GetCredentialsFromAuthorizationRedirect();
+            var server = tuple.Item1;
+            var resourceOwner = tuple.Item2;
             _token = Tokens.GetToken(tuple.Item1, tuple.Item2);
 
             lblAuthorizationCode.Text = _token.AuthorizationCode;
